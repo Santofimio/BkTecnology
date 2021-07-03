@@ -1,0 +1,46 @@
+body {
+    height: 100vh;
+}
+
+#container-master{
+    display: grid;
+    grid-template-columns: 20% 80%;
+    grid-template-rows: 77px 1fr;
+    height: 100%;
+    width: 100%;
+}
+
+#menu{
+    background-color: #212529;
+    text-align: center;
+}
+
+#menu ul a {
+    text-decoration: none;
+    color: white;
+}
+
+.menu-item{
+    height: 55px;
+    width: 100%;
+    padding: 15px;
+    border-top: #515254 solid 2px;
+}
+#logo{
+    background-color: #212529;
+    height: 77px;
+}
+
+#nav{
+    background-color: #212529;
+    height: 77px;
+}
+
+.footer{
+    background-color: #212529;
+    height: 66px;
+}
+
+#logo{
+    padding: 15px;
+}

@@ -9,7 +9,6 @@ class MasterModel extends Connection{
         $ejecutar = mysqli_query($this->getConnect(),$sql);
 
         if($ejecutar){
-
             return $ejecutar;
 
         }else{
@@ -18,14 +17,12 @@ class MasterModel extends Connection{
         }
     }
 
-    public function insertar($table,$fields=false,$values){
+    public function create($table,$fields=false,$values){
 
 		if($fields!=false){
 			$fields="($fields)";
 		}
 
-
-		
 	  	$sql="insert into $table $fields values($values)";
 
 		$ejecutar=mysqli_query($this->getConnect(),$sql);
@@ -34,7 +31,7 @@ class MasterModel extends Connection{
 		}
 	}
 
-	public function editar($table,$condicion=false,$campos){
+	public function update($table,$condicion=false,$campos){
 
 		if($condicion!=false){
 			$condicion= "where ". $condicion;
@@ -54,12 +51,11 @@ class MasterModel extends Connection{
 
 
 
-	public function consultar($campos,$tabla,$condicion=false){
+	public function consult($campos,$tabla,$condicion=false){
 
 		if($condicion!=false){
 			$condicion="where $condicion";
 		}
-
 		$sql="select $campos from $tabla $condicion";
 		$ejecutar=mysqli_query($this->getConnect(),$sql);
 		if($ejecutar){
@@ -68,11 +64,9 @@ class MasterModel extends Connection{
 		else{
 			echo mysqli_error($this->getConnect());
 		}
-
-
 	}
 
-	public function eliminar($table,$condicion){
+	public function delete($table,$condicion){
 
 		$sql="delete from $table where $condicion";
 
@@ -82,8 +76,11 @@ class MasterModel extends Connection{
 		}
 	}
 
-	
-
-
+	function autoIncrement($id,$tabla)
+	{
+		$sql = "select max($id) from $tabla";
+		$resultado = mysqli_query($this->getConnect(), $sql);
+		$contador = mysqli_fetch_row($resultado);
+		return end($contador) + 1;
+	}
 }
-?>

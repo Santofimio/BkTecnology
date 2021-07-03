@@ -6,7 +6,7 @@ function redirect($url){
 	window.location.href='$url';</script>";
 }
 
-function dd($variable){
+function show($variable){
 	echo "<pre>";
 	die(print_r($variable));
 }
@@ -14,24 +14,23 @@ function dd($variable){
 
 function getUrl($modulo,$controlador,$funcion,$parametros=false, $ajax=false)
 {
-    // if($ajax==false)
-    // {
-    //     $pagina="index";
-    // }
-    // else
-    // {
-    //     $pagina="ajax";
-    // }
+    if($ajax==false)
+    {
+        $pagina="admin";
+    }
+    else
+    {
+        $pagina="fecth";
+    }
 
-    // $url="$pagina.php?modulo=$modulo&controlador=$controlador&funcion=$funcion";
-    $url="index.php?modulo=$modulo&controlador=$controlador&funcion=$funcion";
+    $url="$pagina.php?modulo=$modulo&controlador=$controlador&funcion=$funcion";
 
 
-    // if($parametros!=false){
-    //         foreach($parametros as $key=>$valor){
-    //                 $url.="&$key=$valor";
-    //         }
-    // }
+    if($parametros!=false){
+            foreach($parametros as $key=>$valor){
+                    $url.="&$key=$valor";
+            }
+    }
 
     return $url;
 }
@@ -49,7 +48,7 @@ function loadForms()
     $modulo= ucwords($_GET['modulo']);
     $controlador= ucwords($_GET['controlador']);
     $funcion= $_GET['funcion'];
-    //echo "<h3>la ruta que llega ---> MODULO: ".$modulo." CONTROLADOR: ".$controlador."</h3>";
+    // echo "<h3>la ruta que llega ---> MODULO: ".$modulo." CONTROLADOR: ".$controlador."</h3>";
 
     if(is_dir("../Controller/" . $modulo))
     {
