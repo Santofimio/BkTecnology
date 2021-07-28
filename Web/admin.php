@@ -3,20 +3,22 @@
 include_once "../Lib/helpers.php";
 include_once "../View/Partials/head.php";
 
-    echo "<div id='container-master'>";
-    
-include_once "../View/Partials/navbar.php";
+// echo "<div id='container-master' >";
+
 
 include_once "../View/Partials/menu.php";
+include_once "../View/Partials/header.php";
 
-      
-echo "<div id='container'>";
+
+echo "<div class='pc-container'>";
+echo "<div class='pcoded-content' id='container'>";
+// echo "<div id='container'>";
         
 
         if (isset($_GET['modulo'])) {
             loadForms();
         }else{
-            // include_once "../View/Partials/carrousel.php";
+            include_once "../View/Partials/carrousel.php";
         }
         echo "</div>";
         echo "</div>";

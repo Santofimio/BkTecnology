@@ -6,6 +6,11 @@ function redirect($url){
 	window.location.href='$url';</script>";
 }
 
+function redirectFunction($tbl,$fun){
+	echo "<script type='text/javascript'>
+	loadForm($tbl,$fun)</script>";
+}
+
 function show($variable){
 	echo "<pre>";
 	die(print_r($variable));
