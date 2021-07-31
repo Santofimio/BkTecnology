@@ -6,13 +6,13 @@
             </a>
         </div>
         <div class="col-6">
-            <h2 class="display-5 fw-bold text-center">Crear Producto</h2>
+            <h2 class="display-5 fw-bold text-center">Crear Productos</h2>
         </div>
         <div class="col-3">
         </div>
     </div>
     <div class="card pb-3 pt-3 mb-3">
-        <form id="form" class="pl-5 pr-5 pb-5" enctype="multipart/form-data">
+        <form id="form" class="pl-5 pr-5 pb-5"  enctype="multipart/form-data">
             <div class="row mt-5">
                 <div class="col">
                     <div class="form-group">
@@ -36,7 +36,7 @@
                 <div class="col">
                     <div class="form-group">
                         <label>Precio</label>
-                        <input type="number" class="form-control" name="price" required>
+                        <input type="text" class="form-control" name="price" required>
                     </div>
                 </div>
             </div>
@@ -77,50 +77,44 @@
                 </div>
             </div>
             <div class="row mt-5">
-                <div class="col">
+                <div class="col-11">
                     <h4>Especificación</h4>
+                </div>
+                <div class="col-1">
+                    <div>
+                        <button type="button" class="btn btn-success float-end" onclick="spe()">+</button>
+                    </div>
                 </div>
             </div>
             <div id="container_spe">
-                <table  class="table">
-                    <thead>
-                        <tr>
-                            <td width="33%">Tipo de Especificación</td>
-                            <td width="33%">Especificación</td>
-                            <td width="33%">Descripción Especificación</td>
-                            <td><button type="button" class="btn btn-success float-end" onclick="spe()">+</button></td>
-                        </tr>
-                    </thead>
-                </table>
-                <table class="table">
-                    <tbody>
-                        <tr>
-                            <td width="32%">
-                                <select class="form-select" onchange="sd('Specification','specificationType-1','specification-1')" id="specificationType-1">
-                                    <div id="select-specification">
-                                        <option>Seleccione...</option>
+                <div class="row mt-3" id="nodeSpecification-1">
+                    <div class="col-4">
+                        <label for="">Tipo de Especificación</label>
+                        <select class="form-select" onchange="sd('Specification','specificationType-1','specification-1')"  id="specificationType-1">
+                            <div id="select-specification">
+                                <option>Seleccione...</option>
 
-                                        <?php
-                                        foreach ($specificationType as $spe_tip) {
-                                            echo "<option value='" . $spe_tip['spe_tip_id'] . "' >" . $spe_tip['spe_tip_name'] . "</option>";
-                                        }
-                                        ?>
-                                    </div>
-                                </select>
-                            </td>
-                            <td width="31%">
-                                <select class="form-select" name="specification[]" id="specification-1">
-                                    <option>Seleccione...</option>
-                                </select>
-                            </td>
-                            <td width="32%">
-                                <input type="text" class="form-control" name="spe_description[]" required>
-                            </td>
-                            <td></td>
-                        </tr>
-                    </tbody>
-                </table>
+                                <?php
+                                foreach ($specificationType as $spe_tip) {
+                                    echo "<option value='" . $spe_tip['spe_tip_id'] . "' >" . $spe_tip['spe_tip_name'] . "</option>";
+                                }
+                                ?>
+                            </div>
+                        </select>
+                    </div>
+                    <div class="col-4">
+                        <label>Especificación</label>
+                        <select class="form-select" name="specification[]" id="specification-1">
+                            <option>Seleccione...</option>
+                        </select>
+                    </div>
+                    <div class="col-3">
+                        <label>Descripción Especificación</label>
+                        <input type="text" class="form-control" name="spe_description[]" required>
+                    </div>
+                </div>
             </div>
+
             <div class="row mt-5">
                 <div class="col-11">
                     <h4>Imagen</h4>
@@ -133,7 +127,7 @@
             </div>
             <div class="mt-3" id="nodeImgContainer">
                 <div class="row">
-                    <div class="col-11">
+                    <div class="col">
                         <div class="form-group">
                             <input class="form-control" type="file" id="formFile" name="imagen[]">
                         </div>

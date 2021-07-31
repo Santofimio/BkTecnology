@@ -101,5 +101,15 @@ class SpecificationTypeController {
         }
 
     }
+
+    public function select()
+    {
+
+        $SpecificationType = $this->objSpecificationType->consult("*","specification_type");
+        $this->objSpecificationType->close();
+            foreach ($SpecificationType as $st) {
+               echo "<option value='".$st['spe_tip_id']."'>".$st['spe_tip_name']."</option>";
+            }
+    }
 }
 ?>

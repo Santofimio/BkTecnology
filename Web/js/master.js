@@ -23,7 +23,7 @@ function fModal(tbl, fun, title, id = false) {
         });
 }
 
-function loadData(tbl, fun) {
+function loadData(tbl, fun,id=false) {
 
     var datos;
 
@@ -31,7 +31,7 @@ function loadData(tbl, fun) {
         var datos = new FormData(document.getElementById(`form`));
     }
 
-    var url = `fecth.php?modulo=${tbl}&controlador=${tbl}&funcion=${fun}`;
+    var url = `fecth.php?modulo=${tbl}&controlador=${tbl}&funcion=${fun}&id=${id}`;
     fetch(url, {
         method: "POST",
         body: datos,
@@ -67,40 +67,10 @@ function filtar(tbl) {
         });
 }
 
-
-function cboImg() {
-    var ruta = document.getElementById('c_img').src;
-    // alert(ruta);
-    document.getElementById('cambiarImagen').innerHTML = "<input type='file' name='img'>";
-}
-
-
-function sh(div) {
-
-    var div = document.getElementById(div);
-    var clase = div.getAttribute('class');
-    console.log(clase);
-    if (clase === 'collapse') {
-        div.className = '';
-
-    } else {
-        div.className = 'collapse';
-    }
-}
-
-function select(div) {
-    var items = document.getElementsByClassName('nav-link active');
-    items[0].className = 'nav-link';
-    div.className = 'nav-link active';
-}
-
 function sd(tbl,id,idp) {
 
     var id = document.getElementById(`${id}`).value;
     var idp = document.getElementById(`${idp}`);
-
-    console.log(id);
-    console.log(idp);
 
     const datos = new FormData();
     datos.append('id',id)
@@ -125,10 +95,91 @@ function sd(tbl,id,idp) {
         });
 }
 
+function replica(rep,father) {
+    
+    f = document.getElementById(father);
+    r = document.getElementById(rep);
+    var nuevo=r.cloneNode(true);
+    nuevo.style.display  = "flex";
+    f.append(nuevo);
+}
 
-// document.getElementById('item').addEventListener('click', function () {
+// product
 
-//     this.className = 'nav-link active';
+function spe() {
 
-// }  , false);
+    var url = `fecth.php?modulo=SpecificationType&controlador=SpecificationType&funcion=select`;
+    var div = document.getElementById('container_spe');
+    var num = div.childElementCount+1;
+    
+    fetch(url)
+        .then(function (response) {
+            return response.text();
+        })
+        .then(function (data) {
+
+
+        var string = `<table class="table"  id="nodeSpecification-${num}" >
+                    <tr>
+                        <td width="33%">
+                            <select class="form-select" onchange="sd('Specification','specificationType-${num}','specification-${num}')" id="specificationType-${num}">
+                                    <option>Seleccione...</option>
+                                    ${data}
+                            </select>
+                        </td>
+                        <td width="32%">
+                            <select class="form-select" name="specification[]" id="specification-${num}">
+                                <option>Seleccione...</option>
+                            </select>
+                        </td>
+                        <td width="33%">
+                            <input type="text" class="form-control" name="spe_description[]" required>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-danger float-end" onclick="nodeDelete('nodeSpecification-${num}','container_spe')">-</button>
+                        </td>
+                    </tr>
+                    </table>`;
+            string = crearTemplate(string);
+            div.appendChild(string)
+            // div.append(string);
+            // div.textContent = string;
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+}
+
+function speImg(container) {
+    var cont = document.getElementById(container);
+    var num = cont.childElementCount+1;
+    
+    var str = `<div class="row" id="nodeImg-${num}" >
+                    <div class="col-11">
+                        <div class="form-group">
+                            <input class="form-control" type="file" id="formFile" name="imagen[]">
+                        </div>
+                    </div>
+                    <div class="col-1">
+                        <div class="form-group">
+                        <button type="button" class="btn btn-danger float-end" onclick="nodeDelete('nodeImg-${num}','${container}')">-</button>
+                        </div>
+                    </div>
+                </div>`;
+
+    cont.append(crearTemplate(str));
+}
+
+function nodeDelete(Nodo,father){
+    f = document.getElementById(father);
+    n = document.getElementById(Nodo);
+    f.removeChild(n);
+}
+
+function crearTemplate(htmlString) {
+    const html = document.implementation.createHTMLDocument();
+    html.body.innerHTML = htmlString;
+    const secciones = html.body.children[0];
+    return secciones;
+}
 

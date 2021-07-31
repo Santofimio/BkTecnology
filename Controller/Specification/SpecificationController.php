@@ -117,7 +117,7 @@ class SpecificationController {
             $this->objSpecification->close();
             echo "<option>seleccione...</option>";
             foreach ($specification as $spe) {
-               echo "<option id='".$spe['spe_id']."'>".$spe['spe_name']."</option>";
+               echo "<option value='".$spe['spe_id']."'>".$spe['spe_name']."</option>";
             }
 
         }else {

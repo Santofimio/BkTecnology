@@ -2,7 +2,7 @@
 <!-- <script src="js/jquery.js"></script> -->
 <!-- <script src="js/bootstrap.js"></script> -->
 <script src="js/jquery.js"></script>
-<!-- <script src="bootstrap-5/js/bootstrap.js"></script> -->
+<script src="bootstrap-5/js/bootstrap.js"></script>
 <script src="bootstrap-5/js/bootstrap.bundle.min.js"></script>
 
 
@@ -21,6 +21,7 @@
 
 <script src="assets/js/vendor-all.min.js"></script>
 <script src="assets/js/plugins/bootstrap.min.js"></script>
+
 <script src="assets/js/plugins/feather.min.js"></script>
 <script src="assets/js/pcoded.min.js"></script>
 </body>

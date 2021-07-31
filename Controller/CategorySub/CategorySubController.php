@@ -117,7 +117,7 @@ class CategorySubController {
             $this->objCategorySub->close();
             echo "<option>seleccione...</option>";
             foreach ($categorySub as $cs) {
-               echo "<option id='".$cs['cat_sub_id']."'>".$cs['cat_sub_name']."</option>";
+               echo "<option value='".$cs['cat_sub_id']."'>".$cs['cat_sub_name']."</option>";
             }
 
         }else {
