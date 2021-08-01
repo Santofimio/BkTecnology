@@ -17,7 +17,8 @@
                 <div class="col">
                     <div class="form-group">
                         <label>Nombre Del Producto</label>
-                        <input type="text" class="form-control" name="name" placeholder="Nombre..." required>
+                        <input type="hidden" class="form-control" name="id" value="<?php echo $pro['pro_id'] ?>">
+                        <input type="text" class="form-control" name="name" value="<?php echo $pro['pro_name'] ?>" required>
                     </div>
                 </div>
                 <div class="col">
@@ -27,7 +28,11 @@
                             <option>Seleccione...</option>
                             <?php
                             foreach ($provider as $prov) {
-                                echo "<option value='" . $prov['prov_id'] . "' >" . $prov['prov_name'] . "</option>";
+                                if ($prov['prov_id'] === $pro['prov_id']) {
+                                    echo "<option value='" . $prov['prov_id'] . "' selected >" . $prov['prov_name'] . "</option>";
+                                } else {
+                                    echo "<option value='" . $prov['prov_id'] . "' >" . $prov['prov_name'] . "</option>";
+                                }
                             }
                             ?>
                         </select>
@@ -36,7 +41,7 @@
                 <div class="col">
                     <div class="form-group">
                         <label>Precio</label>
-                        <input type="number" class="form-control" name="price" required>
+                        <input type="number" class="form-control" name="price" value="<?php echo $pro['pro_price'] ?>" required>
                     </div>
                 </div>
             </div>
@@ -44,7 +49,7 @@
                 <div class="col">
                     <div class="form-group">
                         <label for="summary">Resumen del Producto</label>
-                        <textarea class="form-control" rows="3" placeholder="resumen ..." name="summary"></textarea>
+                        <textarea class="form-control" rows="3" name="summary"><?php echo $pro['pro_summary'] ?></textarea>
                     </div>
                 </div>
             </div>
@@ -61,7 +66,11 @@
                             <option>Seleccione...</option>
                             <?php
                             foreach ($category as $cat) {
-                                echo "<option value='" . $cat['cat_id'] . "' >" . $cat['cat_name'] . "</option>";
+                                if ($cat['cat_id'] === $cs['cat_id']) {
+                                    echo "<option value='" . $cat['cat_id'] . "' selected >" . $cat['cat_name'] . "</option>";
+                                } else {
+                                    echo "<option value='" . $cat['cat_id'] . "' >" . $cat['cat_name'] . "</option>";
+                                }
                             }
                             ?>
                         </select>
@@ -72,6 +81,15 @@
                         <label for="">SubCategoria</label>
                         <select class="form-select" name="categorySub" id="categorySub">
                             <option>Seleccione...</option>
+                            <?php
+                            foreach ($category_sub as $cat_sub) {
+                                if ($cat_sub['cat_sub_id'] === $cs['cat_sub_id']) {
+                                    echo "<option value='" . $cat_sub['cat_sub_id'] . "' selected >" . $cat_sub['cat_sub_name'] . "</option>";
+                                } else {
+                                    echo "<option value='" . $cat_sub['cat_sub_id'] . "' >" . $cat_sub['cat_sub_name'] . "</option>";
+                                }
+                            }
+                            ?>
                         </select>
                     </div>
                 </div>
@@ -82,7 +100,7 @@
                 </div>
             </div>
             <div id="container_spe">
-                <table  class="table">
+                <table class="table">
                     <thead>
                         <tr>
                             <td width="33%">Tipo de Especificación</td>
@@ -116,8 +134,24 @@
                             <td width="32%">
                                 <input type="text" class="form-control" name="spe_description[]" required>
                             </td>
-                            <td></td>
+                            <td>
+                            </td>
                         </tr>
+                    </tbody>
+                </table>
+                <table class="table">
+                    <tbody id="tbody">
+                        <?php
+                        foreach ($specifications as $spe) {
+
+                            echo "<tr>";
+                            echo "<td>" . $spe['spe_tip_name'] . "</td>";
+                            echo "<td>" . $spe['spe_name'] . "</td>";
+                            echo "<td>" . $spe['pro_spe_description'] . "</td>";
+                            echo "<td><button type='button' class='btn btn-danger float-end' onclick='nodeDelete()'>-</button></td>";
+                            echo "</tr>";
+                        }
+                        ?>
                     </tbody>
                 </table>
             </div>
@@ -140,8 +174,25 @@
                     </div>
                 </div>
             </div>
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                <?php
+                foreach ($product_img as $pro_img) {
+
+                    echo "<div class='col'>
+                            <div class='card shadow-sm'>
+                            <img src='" . $pro_img['pro_img_url'] . "' alt=''>
+                                <div class='card-body'>
+                                    <div class='d-grid gap-2 d-md-flex justify-content-md-center'>
+                                        <p class='card-text'><button type='button' class='btn btn-sm btn-danger end' onclick='nodeDelete()'>Eliminar</button></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>";
+                }
+                ?>
+            </div>
             <div class="row mt-3">
-                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="loadData('Product','create')">Crear</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="loadData('Product','update')">Guardar</button>
             </div>
         </form>
     </div>

@@ -113,7 +113,7 @@ class CategorySubController {
         if(isset($_POST['id'])){
 
             $id = $_POST['id'];
-            $categorySub = $this->objCategorySub->consult("*","category_sub","cat_sub_id=$id");
+            $categorySub = $this->objCategorySub->consult("*","category_sub","cat_id=$id");
             $this->objCategorySub->close();
             echo "<option>seleccione...</option>";
             foreach ($categorySub as $cs) {
