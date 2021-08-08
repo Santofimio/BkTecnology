@@ -15,7 +15,7 @@
                     </button>
                 </div>
             </div>
-            <div class="row mt-5">
+            <div class="row mt-5 bg-white">
                 <table class="table table-striped table-hover">
                     <thead>
                         <tr>

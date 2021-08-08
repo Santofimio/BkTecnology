@@ -23,6 +23,37 @@
                 </div>
                 <div class="col">
                     <div class="form-group">
+                        <label>Precio</label>
+                        <input type="number" class="form-control" name="price" value="<?php echo $pro['pro_price'] ?>" required>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label>Stock</label>
+                        <input type="number" class="form-control" name="stock" value="<?php echo $pro['pro_stock'] ?>" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5">
+            <div class="col">
+                    <div class="form-group">
+                        <label>Marca</label>
+                        <select class="form-select" name="mark" id="mark">
+                            <option>Seleccione...</option>
+                            <?php
+                            foreach ($mark as $m) {
+                                if ($m['mark_id'] === $pro['mark_id']) {
+                                    echo "<option value='" . $m['mark_id'] . "' selected >" . $m['mark_name'] . "</option>";
+                                } else {
+                                    echo "<option value='" . $m['mark_id'] . "' >" . $m['mark_name'] . "</option>";
+                                }
+                            }
+                            ?>
+                        </select>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
                         <label>Proveedor</label>
                         <select class="form-select" name="provider" id="provider">
                             <option>Seleccione...</option>
@@ -36,12 +67,6 @@
                             }
                             ?>
                         </select>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="form-group">
-                        <label>Precio</label>
-                        <input type="number" class="form-control" name="price" value="<?php echo $pro['pro_price'] ?>" required>
                     </div>
                 </div>
             </div>
@@ -111,12 +136,27 @@
                     </thead>
                 </table>
                 <table class="table">
+                    <tbody id="tbody">
+                        <?php
+                        foreach ($specifications as $spe) {
+
+                            echo "<tr id='spe-" . $spe['pro_spe_id'] . "'>";
+                            echo "<td width='33%'>" . $spe['spe_tip_name'] . "</td>";
+                            echo "<td width='33%'>" . $spe['spe_name'] . "</td>";
+                            echo "<td width='33%'>" . $spe['pro_spe_description'] . "</td>";
+                            echo "<td><button type='button' class='btn btn-danger float-end' onclick='nodeDelete(`spe-" . $spe['pro_spe_id'] . "`,`tbody`," . $spe['pro_spe_id'] . ",`pro_spe`)'>-</button></td>";
+                            echo "</tr>";
+                        }
+                        ?>
+                    </tbody>
+                </table>
+                <table class="table">
                     <tbody>
                         <tr>
                             <td width="32%">
                                 <select class="form-select" onchange="sd('Specification','specificationType-1','specification-1')" id="specificationType-1">
                                     <div id="select-specification">
-                                        <option>Seleccione...</option>
+                                        <option value="false">Seleccione...</option>
 
                                         <?php
                                         foreach ($specificationType as $spe_tip) {
@@ -139,21 +179,7 @@
                         </tr>
                     </tbody>
                 </table>
-                <table class="table">
-                    <tbody id="tbody">
-                        <?php
-                        foreach ($specifications as $spe) {
-
-                            echo "<tr>";
-                            echo "<td>" . $spe['spe_tip_name'] . "</td>";
-                            echo "<td>" . $spe['spe_name'] . "</td>";
-                            echo "<td>" . $spe['pro_spe_description'] . "</td>";
-                            echo "<td><button type='button' class='btn btn-danger float-end' onclick='nodeDelete()'>-</button></td>";
-                            echo "</tr>";
-                        }
-                        ?>
-                    </tbody>
-                </table>
+                
             </div>
             <div class="row mt-5">
                 <div class="col-11">
@@ -174,16 +200,16 @@
                     </div>
                 </div>
             </div>
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" id="img-container">
                 <?php
                 foreach ($product_img as $pro_img) {
 
-                    echo "<div class='col'>
+                    echo "<div class='col' id='img-" . $pro_img['pro_img_id'] . "'>
                             <div class='card shadow-sm'>
                             <img src='" . $pro_img['pro_img_url'] . "' alt=''>
                                 <div class='card-body'>
                                     <div class='d-grid gap-2 d-md-flex justify-content-md-center'>
-                                        <p class='card-text'><button type='button' class='btn btn-sm btn-danger end' onclick='nodeDelete()'>Eliminar</button></p>
+                                        <p class='card-text'><button type='button' class='btn btn-sm btn-danger end' onclick='nodeDelete(`img-" . $pro_img['pro_img_id'] . "`,`img-container`," . $pro_img['pro_img_id'] . ",`pro_img`)'>Eliminar</button></p>
                                     </div>
                                 </div>
                             </div>

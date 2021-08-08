@@ -40,34 +40,32 @@
 
 <body>
   <div class="container">
-    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-      <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-        <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
-          <use xlink:href="#bootstrap" />
-        </svg>
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 ">
+      <a href="index.php" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+        <img src="img/log.png" alt="" width="200px" height="50px">
       </a>
 
 
 
       <div class="col-md-3 text-end">
-        <a href="login.php"><button type="button" class="btn btn-outline-primary me-2">Login</button></a>
-
-        <button type="button" class="btn btn-primary">Sign-up</button>
+        <a href="login.php"><button type="button" class="btn btn-outline-primary me-2">Inicia Sesión</button></a>
+        <button type="button" class="btn btn-primary">registrate</button>
       </div>
     </header>
   </div>
-  <header class="navbar-dark d-flex justify-content-center py-3 bg-dark text-white">
-    <ul class="nav nav-pills">
-      <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
-      <li class="nav-item"><a href="#" class="nav-link">Categorias</a></li>
-      <li class="nav-item"><a href="#" class="nav-link">Pricing</a></li>
-      <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
-      <li class="nav-item"><a href="#" class="nav-link">Contacto</a></li>
+  <header class="navbar-dark d-flex justify-content-center  bg-dark text-white">
+    <ul class="nav nav-pills text-white">
+      <!-- <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li> -->
+      <li class="nav-item"><a href="#" class="nav-link text-white">Computadores</a></li>
+      <li class="nav-item"><a href="#" class="nav-link text-white">Celulares</a></li>
+      <li class="nav-item"><a href="#" class="nav-link text-white">Audio</a></li>
+      <li class="nav-item"><a href="#" class="nav-link text-white">Video</a></li>
+      <li class="nav-item"><a href="#" class="nav-link text-white">Tecno Hogar</a></li>
     </ul>
   </header>
 
 
-  <main>
+  <main class="bg-body">
 
     <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-indicators">
@@ -77,43 +75,18 @@
       </div>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <!-- <svg class="bd-placeholder-img" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-            <rect width="100%" height="100%" fill="#777" />
-          </svg> -->
-          <img src="img/slider.jpg" alt="" width="100%" height="100%" >
-
+          <img src="img/slider.jpg" alt="" width="100%" height="100%">
           <div class="container">
-            <div class="carousel-caption text-start">
-              <h1>Example headline.</h1>
-              <p>Some representative placeholder content for the first slide of the carousel.</p>
-              <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
-            </div>
           </div>
         </div>
         <div class="carousel-item">
-          <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-            <rect width="100%" height="100%" fill="#777" />
-          </svg>
-
+          <img src="img/slider-1.jpg" alt="" width="100%" height="100%">
           <div class="container">
-            <div class="carousel-caption">
-              <h1>Another example headline.</h1>
-              <p>Some representative placeholder content for the second slide of the carousel.</p>
-              <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
-            </div>
           </div>
         </div>
         <div class="carousel-item">
-          <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-            <rect width="100%" height="100%" fill="#777" />
-          </svg>
-
+          <img src="img/slider-2.jpg" alt="" width="100%" height="100%">
           <div class="container">
-            <div class="carousel-caption text-end">
-              <h1>One more for good measure.</h1>
-              <p>Some representative placeholder content for the third slide of this carousel.</p>
-              <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
-            </div>
           </div>
         </div>
       </div>
@@ -137,151 +110,268 @@
       <!-- Three columns of text below the carousel -->
       <div class="row">
         <div class="col-lg-4">
-          <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#777" /><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text>
-          </svg>
-
-          <h2>Heading</h2>
-          <p>Some representative placeholder content for the three columns of text below the carousel. This is the first column.</p>
-          <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+          <img class="bd-placeholder-img rounded-circle" src="img/pagos-seguros.png" alt="" width="140" height="140">
+          <h2>Pago Seguro</h2>
+          <p>Multiple medios de pago seguro.</p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
-          <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#777" /><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text>
-          </svg>
-
-          <h2>Heading</h2>
-          <p>Another exciting bit of representative placeholder content. This time, we've moved on to the second column.</p>
-          <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+          <img class="bd-placeholder-img rounded-circle" src="img/oferta.png" alt="" width="140" height="140">
+          <h2>Ofertas</h2>
+          <p>Conoce todas las ofertas que tenemos para ti</p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
-          <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#777" /><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text>
-          </svg>
-
-          <h2>Heading</h2>
-          <p>And lastly this, the third column of representative placeholder content.</p>
-          <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+          <img class="bd-placeholder-img rounded-circle" src="img/free.jpg" alt="" width="140" height="140">
+          <h2>Envio Gratis</h2>
+          <p>Envios gratis a nivel nacional.</p>
         </div><!-- /.col-lg-4 -->
       </div><!-- /.row -->
 
 
       <!-- START THE FEATURETTES -->
-      
+
       <hr class="featurette-divider">
-      
-      <h4 class="mt-5 mb-5">Celulares</h4>
+
+      <h3 class="mt-3 mb-3">Computadores</h3>
       <div class="row">
-        <div class="col">
-          <div class="card mb-3" style="max-width: 540px;">
+        <div class="col-6">
+          <div class="card p-3 bg-card-xl">
             <div class="row g-0">
-              <div class="col-md-4">
-                <img src="..." class="img-fluid rounded-start" alt="...">
+              <div class="col-md-6 mt-5 text-center">
+                <img src="img/Computadores/logo_asus.svg" alt="" width="80%" height="20%">
+                <h3>Portátil 14"</h3>
+                <h4 class="mt-3 mb-3">A314-22-R1C8</h4>
+                <div class="label ">
+                  <span>24%</span>
+                  <div>Dcto</div>
+                </div>
+                <div class="precio">1.500.000</div>
               </div>
-              <div class="col-md-8">
+              <div class="col-md-6 text-center">
                 <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                  <img src="img/Computadores/4711081078869.png" class="img-fluid rounded-start mx-auto" alt="...">
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="col">
-          <div class="card" >
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <div class="col-3">
+          <div class="card p-3 bg-card-xm">
+            <div class="row text-center">
+              <img src="img/Computadores/acer.png" class="" alt="..." width="44%" height="33%">
+              <img src="img/Computadores/acer-green.svg" alt="" width="33%" height="6%">
+              <span class="m-0">Portátil 14"<br>A314-22-R1C8</span>
+              <div class="precio">1.500.000</div>
             </div>
           </div>
         </div>
-        <div class="col">
-          <div class="card" >
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card" >
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <div class="col-3">
+          <div class="card p-3 bg-card-xm">
+            <div class="row text-center">
+              <img src="img/Computadores/acer.png" class="card-img-top" alt="..." width="66%" height="33%">
+              <img src="img/Computadores/acer-green.svg" alt="" width="33%" height="6%">
+              <span class="m-0">Portátil 14"<br>A314-22-R1C8</span>
+              <div class="precio">1.500.000</div>
             </div>
           </div>
         </div>
       </div>
-
-
       <hr class="featurette-divider">
 
-      <h4 class="mt-5 mb-5">Computadores</h4>
+      <h3 class="mt-3 mb-3">Celulares</h3>
       <div class="row">
-        <div class="col">
-          <div class="card mb-3" style="max-width: 540px;">
+        <div class="col-6">
+          <div class="card p-3 bg-card-xl">
             <div class="row g-0">
-              <div class="col-md-4">
-                <img src="..." class="img-fluid rounded-start" alt="...">
+              <div class="col-md-6 mt-5 text-center">
+                <img src="img/Computadores/logo_asus.svg" alt="" width="80%" height="20%">
+                <div class="mt-3 mb-3">
+                  <span class="m-0">Portátil 14"<br>A314-22-R1C8</span>
+                </div>
+                <div class="label">
+                  <span>24%</span>
+                  <div>Dcto</div>
+                </div>
+                <div class="precio">1.500.000</div>
               </div>
-              <div class="col-md-8">
+              <div class="col-md-6 text-center">
                 <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                  <img src="img/Computadores/4711081078869.png" class="img-fluid rounded-start mx-auto" alt="...">
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="col">
-          <div class="card" >
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <div class="col-3">
+          <div class="card p-3 bg-card-xm">
+            <div class="row text-center">
+              <img src="img/Computadores/acer.png" class="card-img-top" alt="..." width="66%" height="33%">
+              <img src="img/Computadores/acer-green.svg" alt="" width="33%" height="6%">
+              <span class="m-0">Portátil 14"<br>A314-22-R1C8</span>
+              <div class="precio">1.500.000</div>
             </div>
           </div>
         </div>
-        <div class="col">
-          <div class="card" >
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card" >
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <div class="col-3">
+          <div class="card p-3 bg-card-xm">
+            <div class="row text-center">
+              <img src="img/Computadores/acer.png" class="card-img-top" alt="..." width="66%" height="33%">
+              <img src="img/Computadores/acer-green.svg" alt="" width="33%" height="6%">
+              <span class="m-0">Portátil 14"<br>A314-22-R1C8</span>
+              <div class="precio">1.500.000</div>
             </div>
           </div>
         </div>
       </div>
-
       <hr class="featurette-divider">
 
+      <h3 class="mt-3 mb-3">Audio</h3>
+      <div class="row">
+        <div class="col-6">
+          <div class="card p-3 bg-card-xl">
+            <div class="row g-0">
+              <div class="col-md-6 mt-5 text-center">
+                <img src="img/Computadores/logo_asus.svg" alt="" width="80%" height="20%">
+                <div class="mt-3 mb-3">
+                  <span class="m-0">Portátil 14"<br>A314-22-R1C8</span>
+                </div>
+                <div class="label">
+                  <span>24%</span>
+                  <div>Dcto</div>
+                </div>
+                <div class="precio">1.500.000</div>
+              </div>
+              <div class="col-md-6 text-center">
+                <div class="card-body">
+                  <img src="img/Computadores/4711081078869.png" class="img-fluid rounded-start mx-auto" alt="...">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="card p-3 bg-card-xm">
+            <div class="row text-center">
+              <img src="img/Computadores/acer.png" class="card-img-top" alt="..." width="66%" height="33%">
+              <img src="img/Computadores/acer-green.svg" alt="" width="33%" height="6%">
+              <span class="m-0">Portátil 14"<br>A314-22-R1C8</span>
+              <div class="precio">1.500.000</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="card p-3 bg-card-xm">
+            <div class="row text-center">
+              <img src="img/Computadores/acer.png" class="card-img-top" alt="..." width="66%" height="33%">
+              <img src="img/Computadores/acer-green.svg" alt="" width="33%" height="6%">
+              <span class="m-0">Portátil 14"<br>A314-22-R1C8</span>
+              <div class="precio">1.500.000</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr class="featurette-divider">
+
+      <h3 class="mt-3 mb-3">Video</h3>
+      <div class="row">
+        <div class="col-6">
+          <div class="card p-3 bg-card-xl">
+            <div class="row g-0">
+              <div class="col-md-6 mt-5 text-center">
+                <img src="img/Computadores/logo_asus.svg" alt="" width="80%" height="20%">
+                <div class="mt-3 mb-3">
+                  <span class="m-0">Portátil 14"<br>A314-22-R1C8</span>
+                </div>
+                <div class="label">
+                  <span>24%</span>
+                  <div>Dcto</div>
+                </div>
+                <div class="precio">1.500.000</div>
+              </div>
+              <div class="col-md-6 text-center">
+                <div class="card-body">
+                  <img src="img/Computadores/4711081078869.png" class="img-fluid rounded-start mx-auto" alt="...">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="card p-3 bg-card-xm">
+            <div class="row text-center">
+              <img src="img/Computadores/acer.png" class="card-img-top" alt="..." width="66%" height="33%">
+              <img src="img/Computadores/acer-green.svg" alt="" width="33%" height="6%">
+              <span class="m-0">Portátil 14"<br>A314-22-R1C8</span>
+              <div class="precio">1.500.000</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="card p-3 bg-card-xm">
+            <div class="row text-center">
+              <img src="img/Computadores/acer.png" class="card-img-top" alt="..." width="66%" height="33%">
+              <img src="img/Computadores/acer-green.svg" alt="" width="33%" height="6%">
+              <span class="m-0">Portátil 14"<br>A314-22-R1C8</span>
+              <div class="precio">1.500.000</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr class="featurette-divider">
       <!-- /END THE FEATURETTES -->
-
+      <h3 class="mt-3 mb-3">Tecno Hogar</h3>
+      <div class="row">
+        <div class="col-6">
+          <div class="card p-3 bg-card-xl">
+            <div class="row g-0">
+              <div class="col-md-6 mt-5 text-center">
+                <img src="img/Computadores/logo_asus.svg" alt="" width="80%" height="20%">
+                <div class="mt-3 mb-3">
+                  <span class="m-0">Portátil 14"<br>A314-22-R1C8</span>
+                </div>
+                <div class="label">
+                  <span>24%</span>
+                  <div>Dcto</div>
+                </div>
+                <div class="precio">1.500.000</div>
+              </div>
+              <div class="col-md-6 text-center">
+                <div class="card-body">
+                  <img src="img/Computadores/4711081078869.png" class="img-fluid rounded-start mx-auto" alt="...">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="card p-3 bg-card-xm">
+            <div class="row text-center">
+              <img src="img/Computadores/acer.png" class="card-img-top" alt="..." width="66%" height="33%">
+              <img src="img/Computadores/acer-green.svg" alt="" width="33%" height="6%">
+              <span class="m-0">Portátil 14"<br>A314-22-R1C8</span>
+              <div class="precio">1.500.000</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="card p-3 bg-card-xm">
+            <div class="row text-center">
+              <img src="img/Computadores/acer.png" class="card-img-top" alt="..." width="66%" height="33%">
+              <img src="img/Computadores/acer-green.svg" alt="" width="33%" height="6%">
+              <span class="m-0">Portátil 14"<br>A314-22-R1C8</span>
+              <div class="precio">1.500.000</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr class="featurette-divider">
     </div><!-- /.container -->
-
-
-    <!-- FOOTER -->
-    <footer class="container">
-      <p class="float-end"><a href="#">Back to top</a></p>
-      <p>&copy; 2017–2021 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-    </footer>
   </main>
-
-
+  <!-- FOOTER -->
+  <footer class="container">
+    <p class="float-end"><a href="#">Back to top</a></p>
+    <p>&copy; 2017–2021 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+  </footer>
   <script src="bootstrap-5/js/bootstrap.bundle.min.js"></script>
-
-
 </body>
 
 </html>

@@ -60,6 +60,7 @@
             <li class="pc-item" onclick="loadData('CategorySub','consult')"><a class="pc-link">SubCategoria</a></li>
             <li class="pc-item" onclick="loadData('SpecificationType','consult')"><a class="pc-link">Tipo Especificación</a></li>
             <li class="pc-item" onclick="loadData('Specification','consult')"><a class="pc-link">Especificación</a></li>
+            <li class="pc-item" onclick="loadData('Mark','consult')"><a class="pc-link">Marca</a></li>
             <li class="pc-item" onclick="loadData('Role','consult')"><a class="pc-link">Rol</a></li>
             <li class="pc-item" onclick="loadData('Status','consult')"><a class="pc-link">Estado</a></li>
             <li class="pc-item" onclick="loadData('User','consult')"><a class="pc-link">Usuario</a></li>

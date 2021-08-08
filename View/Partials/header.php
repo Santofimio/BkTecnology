@@ -1,28 +1,32 @@
 <header class="pc-header ">
-		<div class="header-wrapper">
-			<div class="ml-auto">
-				<ul class="list-unstyled">
+	<div class="header-wrapper">
+		<div class="ml-auto">
+			<ul class="list-unstyled">
+				<?php
+				if (isset($_SESSION['auth'])) {
+
+				?>
 					<li class="dropdown pc-h-item">
 						<a class="pc-head-link dropdown-toggle arrow-none mr-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
 							<img src="assets/images/user/avatar-2.jpg" alt="user-image" class="user-avtar">
 							<span>
-								<span class="user-name">Joseph William</span>
-								<span class="user-desc">Administrator</span>
+								<span class="user-name"><?php echo $_SESSION['nombre']." ".$_SESSION['apellido']?></span>
+								<span class="user-desc"><?php echo $_SESSION['rol']?></span>
 							</span>
 						</a>
 						<div class="dropdown-menu dropdown-menu-right pc-h-dropdown">
-							<div class=" dropdown-header">
-								<h5 class="text-overflow m-0"><span class="badge bg-light-primary"><a href="https://gumroad.com/dashboardkit" target="_blank">Upgrade to Pro</a></span></h5>
-							</div>
-				
-							<a href="auth-signin.html" class="dropdown-item">
+
+							<a href="<?php echo getUrl("Auth","Auth","cerrarSesion",false,"ajax")?>" class="dropdown-item">
 								<i class="material-icons-two-tone">chrome_reader_mode</i>
-								<span>Logout</span>
+								<span>Cerrar Sesión</span>
 							</a>
 						</div>
 					</li>
-				</ul>
-			</div>
-
+				<?php
+				}
+				?>
+			</ul>
 		</div>
-	</header>
+
+	</div>
+</header>

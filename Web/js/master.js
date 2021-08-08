@@ -23,7 +23,7 @@ function fModal(tbl, fun, title, id = false) {
         });
 }
 
-function loadData(tbl, fun,id=false) {
+function loadData(tbl, fun, id = false) {
 
     var datos;
 
@@ -67,17 +67,17 @@ function filtar(tbl) {
         });
 }
 
-function sd(tbl,id,idp) {
+function sd(tbl, id, idp) {
 
     var id = document.getElementById(`${id}`).value;
     var idp = document.getElementById(`${idp}`);
 
     const datos = new FormData();
-    datos.append('id',id)
+    datos.append('id', id)
 
     var url = `fecth.php?modulo=${tbl}&controlador=${tbl}&funcion=select`;
     console.log(url);
-    
+
     fetch(url, {
         method: "POST",
         body: datos,
@@ -87,7 +87,7 @@ function sd(tbl,id,idp) {
         })
         .then(function (data) {
 
-            
+
             idp.innerHTML = data;
         })
         .catch(function (error) {
@@ -95,12 +95,12 @@ function sd(tbl,id,idp) {
         });
 }
 
-function replica(rep,father) {
-    
+function replica(rep, father) {
+
     f = document.getElementById(father);
     r = document.getElementById(rep);
-    var nuevo=r.cloneNode(true);
-    nuevo.style.display  = "flex";
+    var nuevo = r.cloneNode(true);
+    nuevo.style.display = "flex";
     f.append(nuevo);
 }
 
@@ -110,8 +110,8 @@ function spe() {
 
     var url = `fecth.php?modulo=SpecificationType&controlador=SpecificationType&funcion=select`;
     var div = document.getElementById('container_spe');
-    var num = div.childElementCount+1;
-    
+    var num = div.childElementCount + 1;
+
     fetch(url)
         .then(function (response) {
             return response.text();
@@ -119,7 +119,7 @@ function spe() {
         .then(function (data) {
 
 
-        var string = `<table class="table"  id="nodeSpecification-${num}" >
+            var string = `<table class="table"  id="nodeSpecification-${num}" >
                     <tr>
                         <td width="33%">
                             <select class="form-select" onchange="sd('Specification','specificationType-${num}','specification-${num}')" id="specificationType-${num}">
@@ -152,8 +152,8 @@ function spe() {
 
 function speImg(container) {
     var cont = document.getElementById(container);
-    var num = cont.childElementCount+1;
-    
+    var num = cont.childElementCount + 1;
+
     var str = `<div class="row" id="nodeImg-${num}" >
                     <div class="col-11">
                         <div class="form-group">
@@ -170,10 +170,42 @@ function speImg(container) {
     cont.append(crearTemplate(str));
 }
 
-function nodeDelete(Nodo,father){
+function nodeDelete(Nodo, father, id = false, tbl = false) {
+
     f = document.getElementById(father);
     n = document.getElementById(Nodo);
     f.removeChild(n);
+
+    console.log(id);
+
+    if (id !== false) {
+        const datos = new FormData();
+        datos.append('id', id)
+        datos.append('tbl', tbl)
+
+        var url = `fecth.php?modulo=Product&controlador=Product&funcion=deleteItem`;
+
+        fetch(url, {
+            method: "POST",
+            body: datos,
+        })
+            .then(function (response) {
+                return response.text();
+            })
+            .then(function (data) {
+                console.log(data);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+
+    }
+
+
+
+
+
+
 }
 
 function crearTemplate(htmlString) {

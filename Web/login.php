@@ -10,14 +10,14 @@
         <h2>Inicio De Sesión</h2>
         <form id="sesion" >
           <div class="user-box">
-            <input type="text" name="id" id="id"  value="" required="">
-            <label>Identificacion</label>
+            <input type="text" name="email" id="email"  value="" required="">
+            <label>Email</label>
           </div>
           <div class="user-box">
             <input type="password" name="pass" id="pass" value="" required="">
             <label>Contraseña</label>
           </div>
-          <a href="admin.php">
+          <a onclick="login()" >
             <span></span>
             <span></span>
             <span></span>

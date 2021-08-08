@@ -1,4 +1,4 @@
-<div class="container mt-3 mb-5">
+<div class="container mt-3 mb-5 ">
     <div class="row">
         <div class="col-3">
             <a href="admin.php">
@@ -22,6 +22,33 @@
                 </div>
                 <div class="col">
                     <div class="form-group">
+                        <label>Precio</label>
+                        <input type="number" class="form-control" name="price" required>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label>stock</label>
+                        <input type="number" class="form-control" name="stock" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col">
+                    <div class="form-group">
+                    <label>Marca</label>
+                        <select class="form-select" name="mark" id="mark">
+                            <option>Seleccione...</option>
+                            <?php
+                            foreach ($mark as $m) {
+                                echo "<option value='" . $m['mark_id'] . "' >" . $m['mark_name'] . "</option>";
+                            }
+                            ?>
+                        </select>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
                         <label>Proveedor</label>
                         <select class="form-select" name="provider" id="provider">
                             <option>Seleccione...</option>
@@ -31,12 +58,6 @@
                             }
                             ?>
                         </select>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="form-group">
-                        <label>Precio</label>
-                        <input type="number" class="form-control" name="price" required>
                     </div>
                 </div>
             </div>

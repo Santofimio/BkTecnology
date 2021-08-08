@@ -113,7 +113,7 @@ class SpecificationController {
         if(isset($_POST['id'])){
 
             $id = $_POST['id'];
-            $specification = $this->objSpecification->consult("*","specification","spe_id=$id");
+            $specification = $this->objSpecification->consult("*","specification","spe_tip_id=$id");
             $this->objSpecification->close();
             echo "<option>seleccione...</option>";
             foreach ($specification as $spe) {
