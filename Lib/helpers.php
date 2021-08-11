@@ -19,7 +19,7 @@ function show($variable){
 
 function getUrl($modulo,$controlador,$funcion,$parametros=false, $ajax=false)
 {
-    if($ajax==false)
+    if($ajax===false)
     {
         $pagina="admin";
     }

@@ -16,7 +16,7 @@ class ProductController
         $category = $this->objProduct->consult("*", "category");
         $provider = $this->objProduct->consult("*", "provider");
         $specificationType = $this->objProduct->consult("*", "specification_type");
-        $mark = $this->objProduct->consult("*","mark");
+        $mark = $this->objProduct->consult("*", "mark");
         include_once '../View/Product/create.php';
     }
 
@@ -62,7 +62,7 @@ class ProductController
                     $id_img = $this->objProduct->autoIncrement("pro_img_id", "product_img");
 
                     $ext = explode(".", $_FILES['imagen']['name'][$i]);
-                    $name_img = "product-$id-".$id_img;
+                    $name_img = "product-$id-" . $id_img;
                     $ruta_temp = $_FILES['imagen']['tmp_name'][$i];
                     $ruta_img = 'img/product/' . $name_img . '.' . end($ext);
 
@@ -142,7 +142,7 @@ class ProductController
             // echo "<h1 class='bg-red'>".$_POST['specification'][0]."</h1>";
             if (isset($_POST['specification']) and $_POST['specification'][0] !== "Seleccione...") {
 
-                
+
                 $specification = $_POST['specification'];
                 $spe_description = $_POST['spe_description'];
 
@@ -157,15 +157,15 @@ class ProductController
                 }
             }
 
-            
+
             if (isset($_FILES['imagen']) and $_FILES['imagen']['name'][0] !== "") {
-                
+
                 for ($i = 0; $i < count($_FILES['imagen']['name']); $i++) {
 
                     $id_img = $this->objProduct->autoIncrement("pro_img_id", "product_img");
 
                     $ext = explode(".", $_FILES['imagen']['name'][$i]);
-                    $name_img = "product-$id-".$id_img;
+                    $name_img = "product-$id-" . $id_img;
                     $ruta_temp = $_FILES['imagen']['tmp_name'][$i];
                     $ruta_img = 'img/product/' . $name_img . '.' . end($ext);
 
@@ -186,7 +186,6 @@ class ProductController
         } else {
             echo "No llegaron los datos para Modificar";
         }
-
     }
 
     function getDelete()
@@ -200,25 +199,29 @@ class ProductController
 
             $id = $_POST['id'];
             // $this->objProduct->delete("product", "pro_id=$id");
-            $this->objProduct->update("product","pro_id='$id'",
-                array("sta_id" => "'5'"));
+            $this->objProduct->update(
+                "product",
+                "pro_id='$id'",
+                array("sta_id" => "'5'")
+            );
             $this->consult();
         } else {
             echo "No llegaron datos para Eliminar";
         }
     }
 
-    public function deleteItem(){
+    public function deleteItem()
+    {
         if (isset($_POST['id'])) {
 
             $id = $_POST['id'];
 
-            if($_POST['tbl'] === 'pro_spe'){
+            if ($_POST['tbl'] === 'pro_spe') {
                 $tbl = 'product_specification';
-                $idTbl = $_POST['tbl']."_id";
-            }else if($_POST['tbl'] === 'pro_img'){
+                $idTbl = $_POST['tbl'] . "_id";
+            } else if ($_POST['tbl'] === 'pro_img') {
                 $tbl = 'product_img';
-                $idTbl = $_POST['tbl']."_id";
+                $idTbl = $_POST['tbl'] . "_id";
             }
 
             $this->objProduct->delete("$tbl", "$idTbl=$id");
@@ -239,5 +242,37 @@ class ProductController
         } else {
             echo "No llegaron datos para filtar";
         }
+    }
+
+    public function productIndex()
+    {
+        $computadores = $this->objProduct->consult("p.pro_id,p.pro_name,p.pro_summary,p.pro_price,c.cat_sub_name,m.mark_name,m.mark_log", "product p, category_sub c, mark m", "p.cat_sub_id=c.cat_sub_id AND p.mark_id=m.mark_id AND c.cat_id=2 AND p.sta_id=4");
+        $celulares = $this->objProduct->consult("p.pro_id,p.pro_name,p.pro_summary,p.pro_price,c.cat_sub_name,m.mark_name,m.mark_log", "product p, category_sub c, mark m", "p.cat_sub_id=c.cat_sub_id AND p.mark_id=m.mark_id AND c.cat_id=1 AND p.sta_id=4");
+        
+        // $com = mysqli_fetch_assoc($computadores);
+        
+        // echo "<pre>".var_dump($computadores)."</pre>";
+        // $thearray = (array) $computadores;
+        // $thearray = mysqli_fetch_array($computadores);
+        
+        // for ($i=0; $i < 3; $i++) { 
+        //     echo $thearray[$i];
+        // }
+        // echo "<pre>".var_dump($com)."</pre>";
+        // foreach ($computadores as $com) {
+        //     echo $com['pro_name'];
+        // }
+        // while ($obj = $computadores->fetch_object()) {
+        //     printf ($obj->pro_id);
+        //     printf ($obj->pro_name);
+        // }
+        // for ($i=0; $i < 3; $i++) { 
+        //     $fila['pro_id']= mysqli_fetch_array($computadores);
+        // }
+        
+        // echo "<pre>".var_dump($computadores)."</pre>";
+
+        include_once '../View/Partials/product.php';
+        $this->objProduct->close();
     }
 }

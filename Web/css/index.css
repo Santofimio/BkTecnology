@@ -43,7 +43,7 @@ box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.4);
 box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.4);
 }
 
-.precio {
+/* .precio {
   color: #DD171B;
   font-weight: 700;
   border-radius: 8px;
@@ -53,6 +53,36 @@ box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.4);
   margin: auto;
   width: 60%;
   font-size: 18px;
+  margin-top: 3px;
+} */
+.img{
+  margin: auto;
+  width: 50%;
+  height: 50%;
+}
+
+.log-xl{
+  margin: auto;
+  width: 40%;
+  height: 25%;
+}
+
+.log{
+  margin: auto;
+  width: 25%;
+  height: 15%;
+}
+
+.precio {
+  color: #DD171B;
+  font-weight: 700;
+  border-radius: 8px;
+  border: solid 1px #DD171B;
+  padding: 0 10px;
+  background: white;
+  margin: auto;
+  width: 100px;
+  font-size: 16px;
   margin-top: 3px;
 }
 
@@ -71,13 +101,13 @@ box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.4);
 }
 
 .label{
-  position: absolute;
+    position: absolute;
     background: #E0171B;
     text-align: center;
     padding: 6px 16px;
     color: white;
     border-radius: 8px;
-    top: 35%;
+    top: 15%;
     right: 8%;
 }
 

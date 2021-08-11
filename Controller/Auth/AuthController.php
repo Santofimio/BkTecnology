@@ -38,6 +38,7 @@ class AuthController {
                 $r = mysqli_fetch_assoc($rol);
                 $_SESSION['rol']=$r['rol_name'];
                 $this->objAuth->close();
+                // redirect('admin.php');
                 echo "admin.php";
                 
             }else{

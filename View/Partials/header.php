@@ -1,32 +1,21 @@
-<header class="pc-header ">
-	<div class="header-wrapper">
-		<div class="ml-auto">
-			<ul class="list-unstyled">
-				<?php
-				if (isset($_SESSION['auth'])) {
-
-				?>
-					<li class="dropdown pc-h-item">
-						<a class="pc-head-link dropdown-toggle arrow-none mr-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-							<img src="assets/images/user/avatar-2.jpg" alt="user-image" class="user-avtar">
-							<span>
-								<span class="user-name"><?php echo $_SESSION['nombre']." ".$_SESSION['apellido']?></span>
-								<span class="user-desc"><?php echo $_SESSION['rol']?></span>
-							</span>
-						</a>
-						<div class="dropdown-menu dropdown-menu-right pc-h-dropdown">
-
-							<a href="<?php echo getUrl("Auth","Auth","cerrarSesion",false,"ajax")?>" class="dropdown-item">
-								<i class="material-icons-two-tone">chrome_reader_mode</i>
-								<span>Cerrar Sesión</span>
-							</a>
-						</div>
-					</li>
-				<?php
-				}
-				?>
-			</ul>
-		</div>
-
-	</div>
-</header>
+<div class="container">
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 ">
+      <a href="index.php" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+        <img src="img/log.png" alt="" width="200px" height="50px">
+      </a>
+      <div class="col-md-3 text-end">
+        <a href="login.php"><button type="button" class="btn btn-outline-primary me-2">Inicia Sesión</button></a>
+        <button type="button" class="btn btn-primary">registrate</button>
+      </div>
+    </header>
+  </div>
+  <header class="navbar-dark d-flex justify-content-center  bg-dark text-white">
+    <ul class="nav nav-pills text-white">
+      <!-- <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li> -->
+      <li class="nav-item"><a href="#" class="nav-link text-white">Computadores</a></li>
+      <li class="nav-item"><a href="#" class="nav-link text-white">Celulares</a></li>
+      <li class="nav-item"><a href="#" class="nav-link text-white">Audio</a></li>
+      <li class="nav-item"><a href="#" class="nav-link text-white">Video</a></li>
+      <li class="nav-item"><a href="#" class="nav-link text-white">Tecno Hogar</a></li>
+    </ul>
+  </header>

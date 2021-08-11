@@ -22,11 +22,11 @@ class UserController {
 
             if(!isset($_POST['pass'])){
 
-                $pass = '123456';
+                $pass = md5("123456");
                 $rol = $_POST['rol'];
                 
             }else{
-                $pass = $_POST['pass'];
+                $pass = md5($_POST['pass']);
                 $rol = 3;
 
             }
