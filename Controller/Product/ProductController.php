@@ -248,31 +248,41 @@ class ProductController
     {
         $computadores = $this->objProduct->consult("p.pro_id,p.pro_name,p.pro_summary,p.pro_price,c.cat_sub_name,m.mark_name,m.mark_log", "product p, category_sub c, mark m", "p.cat_sub_id=c.cat_sub_id AND p.mark_id=m.mark_id AND c.cat_id=2 AND p.sta_id=4");
         $celulares = $this->objProduct->consult("p.pro_id,p.pro_name,p.pro_summary,p.pro_price,c.cat_sub_name,m.mark_name,m.mark_log", "product p, category_sub c, mark m", "p.cat_sub_id=c.cat_sub_id AND p.mark_id=m.mark_id AND c.cat_id=1 AND p.sta_id=4");
-        
-        // $com = mysqli_fetch_assoc($computadores);
-        
-        // echo "<pre>".var_dump($computadores)."</pre>";
-        // $thearray = (array) $computadores;
-        // $thearray = mysqli_fetch_array($computadores);
-        
-        // for ($i=0; $i < 3; $i++) { 
-        //     echo $thearray[$i];
-        // }
-        // echo "<pre>".var_dump($com)."</pre>";
-        // foreach ($computadores as $com) {
-        //     echo $com['pro_name'];
-        // }
-        // while ($obj = $computadores->fetch_object()) {
-        //     printf ($obj->pro_id);
-        //     printf ($obj->pro_name);
-        // }
-        // for ($i=0; $i < 3; $i++) { 
-        //     $fila['pro_id']= mysqli_fetch_array($computadores);
-        // }
-        
-        // echo "<pre>".var_dump($computadores)."</pre>";
+        $audio = $this->objProduct->consult("p.pro_id,p.pro_name,p.pro_summary,p.pro_price,c.cat_sub_name,m.mark_name,m.mark_log", "product p, category_sub c, mark m", "p.cat_sub_id=c.cat_sub_id AND p.mark_id=m.mark_id AND c.cat_id=4 AND p.sta_id=4");
+        $video = $this->objProduct->consult("p.pro_id,p.pro_name,p.pro_summary,p.pro_price,c.cat_sub_name,m.mark_name,m.mark_log", "product p, category_sub c, mark m", "p.cat_sub_id=c.cat_sub_id AND p.mark_id=m.mark_id AND c.cat_id=5 AND p.sta_id=4");
+        $hogar = $this->objProduct->consult("p.pro_id,p.pro_name,p.pro_summary,p.pro_price,c.cat_sub_name,m.mark_name,m.mark_log", "product p, category_sub c, mark m", "p.cat_sub_id=c.cat_sub_id AND p.mark_id=m.mark_id AND c.cat_id=6 AND p.sta_id=4");
+
 
         include_once '../View/Partials/product.php';
         $this->objProduct->close();
+    }
+
+    public function getProduct()
+    {
+        if (isset($_POST['id'])) {
+            $id = $_POST['id'];
+            $product = $this->objProduct->consult("p.pro_id,p.pro_name,p.pro_summary,p.pro_price,cs.cat_sub_name,c.cat_name, m.mark_name,m.mark_log", "product p, category_sub cs, category c, mark m", "p.cat_sub_id=cs.cat_sub_id AND cs.cat_id=c.cat_id AND p.mark_id=m.mark_id AND p.pro_id=$id AND p.sta_id=4");
+            $pro = mysqli_fetch_assoc($product);
+            $specifications = $this->objProduct->consult("pro_spe_id,pro_spe_description,spe_name,st.spe_tip_name,st.spe_tip_id", "product_specification ps,specification s,specification_type st", "ps.spe_id=s.spe_id AND s.spe_tip_id=st.spe_tip_id AND ps.pro_id=$id ");
+            $product_img = $this->objProduct->consult("*", "product_img", "pro_id=$id");
+            $specificationType = $this->objProduct->consult("*", "specification_type");
+
+            $cont = 0;
+            $sp[0] = -1;
+
+            foreach ($specifications as $s) {
+                $sp[$cont] = $s['spe_tip_id'];
+                $cont++;
+            }
+            $spe = array_values(array_unique($sp));
+
+            
+
+            
+        } else {
+            echo "No llegaron datos";
+        }
+
+        include_once '../View/Product/product.php';
     }
 }

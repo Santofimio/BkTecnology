@@ -2,9 +2,10 @@
 include_once "../Lib/helpers.php";
 include_once "../View/Partials/head.php";
 include_once "../View/Partials/header.php";
+
 ?>
 <!-- =======================contents============================= -->
-<main class="bg-body" id="contents">
+<main id="contents">
 
   <?php
   include_once "../View/Partials/carrousel.php";

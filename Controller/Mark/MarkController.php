@@ -98,7 +98,7 @@ class MarkController
                 )
             );
 
-            $this->consult();
+            // $this->consult();
             
         } else {
             echo "No llegaron datos para Editar";

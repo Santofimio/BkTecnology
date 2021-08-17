@@ -32,7 +32,7 @@
                 foreach ($mark as $m) {
                     echo "<tr>";
                     echo "<td width='20%'>" . $m['mark_name'] . "</td>";
-                    echo "<td><img src='" . $m['mark_log'] . "' alt='' width='40%' height'40px'></td>";
+                    echo "<td><img src='" . $m['mark_log'] . "' alt='' width='40%' height='40px'></td>";
                     echo "<td width='20%'><button type='button' onclick='fModal(`Mark`,`Update`,`Modificar marca`," . $m['mark_id'] . ")' class='btn btn-warning' data-bs-toggle='modal' data-bs-target='#staticBackdrop'>Modificar</button><a></td>";
                     echo "<td  width='20%'><button type='button' onclick='fModal(`Mark`,`Delete`,`Estas seguro de Eliminar la marca <br>" . $m['mark_name'] . "`," . $m['mark_id'] . ")' class='btn btn-danger' data-bs-toggle='modal' data-bs-target='#staticBackdrop'>Eliminar</button><a></td>";
                     echo "</tr>";

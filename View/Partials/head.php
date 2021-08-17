@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
   <meta name="generator" content="Hugo 0.84.0">
-  <title>Carousel Template · Bootstrap v5.0</title>
+  <title>Bk-Tecnology</title>
 
   <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/carousel/">
 
@@ -16,6 +16,7 @@
   <!-- Bootstrap core CSS -->
   <link href="bootstrap-5/css/bootstrap.min.css" rel="stylesheet">
   <link href="css/index.css" rel="stylesheet">
+  <link href="css/product.css" rel="stylesheet">
 
   <style>
     .bd-placeholder-img {
@@ -36,10 +37,9 @@
   </style>
 
 
-  <!-- Custom styles for this template -->
-  <link href="carousel.css" rel="stylesheet">
+
 </head>
-<body onload="loadIndex()">
+<body onload="loadIndex()" class="bg-body">
 
 
 

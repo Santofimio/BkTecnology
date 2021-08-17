@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="assets/css/style.css" id="main-style-link">
     <!-- <link rel="stylesheet" href="css/bootstrap.css"> -->
     
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/admin.css">
     <link rel="stylesheet" href="bootstrap-5/css/bootstrap.css">
 </head>
 <body>
