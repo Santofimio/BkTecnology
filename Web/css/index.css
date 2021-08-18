@@ -90,7 +90,7 @@ box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.4);
 
 .bg-body {
   background-color: #212529!important;
-  color: white;
+  /* color: white; */
 }
 
 .bg-w {
@@ -108,11 +108,24 @@ box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.4);
     right: 8%;
 }
 
-/* .bg-card-xl :hover{
-  -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.4);
--moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.4);
-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.4);
-} */
+.cart{
+  display: inline-block;
+  position: relative;
+}
+
+.counter{
+  position: absolute;
+  top: -10px;
+  right: 10px;
+  width: 18px;
+  height: 18px;
+  font-size: 12px;
+  line-height: 18px;
+  text-align: center;
+  color: #fff;
+  background: #e63027;
+  border-radius: 50%;
+}
 
 /* CUSTOMIZE THE CAROUSEL
   -------------------------------------------------- */

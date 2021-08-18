@@ -1,5 +1,5 @@
 
-<div class="container marketing" id="services">
+<div class="container marketing text-white" id="services">
 <hr class="featurette-divider">
   <!-- Three columns of text below the carousel -->
   <div class="row">

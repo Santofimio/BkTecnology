@@ -1,4 +1,5 @@
 <?php
+session_start();
 include_once "../Lib/helpers.php";
 include_once "../View/Partials/head.php";
 include_once "../View/Partials/header.php";

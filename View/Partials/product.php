@@ -2,7 +2,7 @@
 
 
 
-<h3 class="mt-3 mb-3">Computadores</h3>
+<h3 class="mt-3 mb-3 text-white">Computadores</h3>
 <div class="row">
     <?php
     $c_com = 1;
@@ -63,9 +63,9 @@
 
 
 </div>
-<hr class="featurette-divider">
+<hr class="featurette-divider text-white">
 
-<h3 class="mt-3 mb-3">Celulares</h3>
+<h3 class="mt-3 mb-3 text-white">Celulares</h3>
 <div class="row">
     <?php
     $c_com = 1;
@@ -74,7 +74,8 @@
         $pro_spe_cel = $this->objProduct->consult("*", "product_specification p", "p.pro_id=" . $fila['pro_id']);
         $pro_img_cel = $this->objProduct->consult("*", "product_img p", "p.pro_id=" . $fila['pro_id'] . " ORDER by pro_img_id LIMIT 1");
 
-        foreach ($pro_img_cel  as $pi) {}
+        foreach ($pro_img_cel  as $pi) {
+        }
 
         foreach ($pro_spe_cel  as $psc) {
             if ($psc['spe_id'] == 3) {
@@ -122,11 +123,11 @@
     }
     ?>
 </div>
-<hr class="featurette-divider">
+<hr class="featurette-divider text-white">
 
-<h3 class="mt-3 mb-3">Audio</h3>
+<h3 class="mt-3 mb-3 text-white">Audio</h3>
 <div class="row">
-<?php
+    <?php
     $c_com = 1;
     while ($fila = mysqli_fetch_array($audio)) {
 
@@ -135,10 +136,10 @@
 
         foreach ($pro_img  as $pi) {
         }
-        $con="";
+        $con = "";
         foreach ($pro_spe  as $ps) {
             if ($ps['spe_id'] == 19) {
-                $con.= $ps['pro_spe_description']."<br>";
+                $con .= $ps['pro_spe_description'] . "<br>";
             } else if ($ps['spe_id'] == 13) {
                 $ref = $ps['pro_spe_description'];
             }
@@ -167,7 +168,7 @@
                             </div>
                         </div>
                     </div>";
-                    $con="";
+            $con = "";
         } else {
             echo "<div class='col-3' onclick='getProduct(" . $fila['pro_id'] . ")'>
                             <div class='card p-3 bg-card-xm text-center'>
@@ -178,24 +179,25 @@
                                 <div class='precio'>" . $fila['pro_price'] . "</div>
                             </div>
                         </div>";
-                        $con="";
+            $con = "";
         }
         $c_com++;
     }
     ?>
 </div>
-<hr class="featurette-divider">
+<hr class="featurette-divider text-white">
 
-<h3 class="mt-3 mb-3">Video</h3>
+<h3 class="mt-3 mb-3 text-white">Video</h3>
 <div class="row">
-<?php
+    <?php
     $c_com = 1;
     while ($fila = mysqli_fetch_array($video)) {
 
         $pro_spe_cel = $this->objProduct->consult("*", "product_specification p", "p.pro_id=" . $fila['pro_id']);
         $pro_img_cel = $this->objProduct->consult("*", "product_img p", "p.pro_id=" . $fila['pro_id'] . " ORDER by pro_img_id LIMIT 1");
 
-        foreach ($pro_img_cel  as $pi) {}
+        foreach ($pro_img_cel  as $pi) {
+        }
 
         foreach ($pro_spe_cel  as $psc) {
             if ($psc['spe_id'] == 13) {
@@ -243,11 +245,11 @@
     }
     ?>
 </div>
-<hr class="featurette-divider">
+<hr class="featurette-divider text-white">
 
-<h3 class="mt-3 mb-3">Tecno Hogar</h3>
+<h3 class="mt-3 mb-3 text-white">Tecno Hogar</h3>
 <div class="row">
-<?php
+    <?php
     $c_com = 1;
     while ($fila = mysqli_fetch_array($hogar)) {
 
@@ -262,7 +264,7 @@
                 $con = $ps['pro_spe_description'];
             } else if ($ps['spe_id'] == 13) {
                 $ref = $ps['pro_spe_description'];
-            }else if ($ps['spe_id'] == 20) {
+            } else if ($ps['spe_id'] == 20) {
                 $vel = $ps['pro_spe_description'];
             }
         }
@@ -305,5 +307,5 @@
     }
     ?>
 </div>
-<hr class="featurette-divider">
+<hr class="featurette-divider text-white">
 <!-- /END THE FEATURETTES -->

@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container text-white">
     <header class="navbar-dark d-flex">
         <ul class="nav nav-pills text-white">
             <li class="nav-item"><a href="#" class="nav-link text-white"><?php echo $pro['cat_name'] ?></a></li>
@@ -80,7 +80,7 @@
                         <span class="btn btn-success">+</span>
                     </div>
                     <div class="row mt-3">
-                        <button class="btn bg-red btn-lg col-11 m-auto">Añadir Al Carrito</button>
+                        <button class="btn bg-red btn-lg col-11 m-auto" onclick="addCart(<?php echo $pro['pro_id'];?>)">Añadir Al Carrito</button>
                     </div>
                     <div class="row border-top mt-3"></div>
                     <div class="row mt-2 text-center" id="mediosPago">
@@ -98,9 +98,9 @@
         <div id="product-specifications">
             <div id="card-specifications" class="card">
                 <div class="card-header text-center">
-                    <h3>Espesificaciones</h3>
+                    <h3>Especificaciones</h3>
                 </div>
-                <div class="card-body">
+                <div class="card-body text-white">
                     <div class="accordion" id="accordionExample">
 
                         <?php
@@ -143,7 +143,7 @@
 
 
         </div>
-        <div id="product-summary">
+        <div id="product-summary" class="text-white">
             <h3>Resumen Del producto</h3>
             <p class="card-text"><?php echo $pro['pro_summary']; ?></p>
         </div>

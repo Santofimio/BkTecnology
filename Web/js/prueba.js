@@ -50,3 +50,95 @@ var string = `<div class="row mt-3" id="nodeSpecification-${num}">
                                 </div>
                             </div>
                         </div>`
+
+
+                        {
+                            "decimal":        "",
+                            "emptyTable":     "No data available in table",
+                            "info":           "Showing _START_ to _END_ of _TOTAL_ entries",
+                            "infoEmpty":      "Showing 0 to 0 of 0 entries",
+                            "infoFiltered":   "(filtered from _MAX_ total entries)",
+                            "infoPostFix":    "",
+                            "thousands":      ",",
+                            "lengthMenu":     "Show _MENU_ entries",
+                            "loadingRecords": "Loading...",
+                            "processing":     "Processing...",
+                            "search":         "Search:",
+                            "zeroRecords":    "No matching records found",
+                            "paginate": {
+                                "first":      "First",
+                                "last":       "Last",
+                                "next":       "Next",
+                                "previous":   "Previous"
+                            },
+                            "aria": {
+                                "sortAscending":  ": activate to sort column ascending",
+                                "sortDescending": ": activate to sort column descending"
+                            }
+                        }
+
+
+                        
+function checkMail() {
+    var email = document.getElementById('email').value;
+    var containerForm = document.getElementById('container-form');
+    console.log(email);
+    const datos = new FormData();
+    datos.append('email', email)
+    var url = `fecth.php?modulo=Auth&controlador=Auth&funcion=checkMail`;
+    fetch(url, {
+        method: "POST",
+        body: datos,
+    })
+        .then(function (response) {
+            return response.text();
+        })
+        .then(function (data) {
+
+            if(data == false){
+
+
+                var dt = `<div class='row mt-2'>
+                            <div class='col'>
+                                <label for='pass' class='form-label'>Contraseña</label>
+                                <input type='password' class='form-control' name='pass' id='pass'>
+                            </div>
+                            <div class='col'>
+                                <label for='confirm_pass' class='form-label'>Confirme Contraseña</label>
+                                <input type='password' class='form-control' name='confirm_pass' id='confirm_pass'>
+                            </div>
+                        </div>
+                        <div class='row mt-2'>
+                            <div class='col'>
+                                <label for='name' class='form-label'>Nombres</label>
+                                <input type='text' class='form-control' name='name' id='name' placeholder='Nombres'>
+                            </div>
+                            <div class='col'>
+                                <label for='last_name' class='form-label'>Apellidos</label>
+                                <input type='text' class='form-control' name='last_name' id='last_name' placeholder='Apellidos'>
+                            </div>
+                        </div>`;
+
+                containerForm.innerHTML = dt;
+                
+            }if(data == true){
+
+                var dt = `<div class='row mt-2'>
+                            <label for='pass' class='form-label'>Contraseña</label>
+                            <input type='password' class='form-control' name='pass' id='pass'>
+                        </div>`;
+
+                containerForm.innerHTML = dt;
+
+            }else{
+                console.log(data);
+            }
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+}
+
+function hidden() {
+    console.log("hola");
+}
