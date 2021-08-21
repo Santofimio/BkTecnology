@@ -23,7 +23,23 @@ class CategorySubController {
             $name = $_POST['name'];
             $cat = $_POST['cat'];
             $id = $this->objCategorySub->autoIncrement("cat_sub_id","category_sub");
-            $this->objCategorySub->create("category_sub",false,"$id,'$name',$cat");
+
+            if (isset($_FILES['imagen']['name'])) {
+                $ext = explode(".", $_FILES['imagen']['name']);
+                $name_img = $id . '-' . $name;
+                $ruta_temp = $_FILES['imagen']['tmp_name'];
+                $ruta_img = 'img/categorySub/' . $name_img . '.' . end($ext);
+
+                if (move_uploaded_file($ruta_temp, $ruta_img)) {
+                    $imagen = $ruta_img;
+                } else {
+                    $imagen = null;
+                }
+            } else {
+                $imagen = null;
+            }
+
+            $this->objCategorySub->create("category_sub",false,"$id,'$name','$imagen',$cat");
             $this->consult();
 
         }else {
@@ -59,12 +75,27 @@ class CategorySubController {
             $id = $_POST['id'];
             $name = $_POST['name'];
             $cat = $_POST['cat'];
+            $imagen_old = $_POST['imagen_old'];
+
+            if ($_FILES['imagen']['tmp_name']) {
+                $ext = explode(".", $_FILES['imagen']['name']);
+                $name_img = $id . '-' . $name;
+                $ruta_temp = $_FILES['imagen']['tmp_name'];
+                $ruta_img = 'img/categorySub/' . $name_img . '.' . end($ext);
+
+                if (move_uploaded_file($ruta_temp, $ruta_img)) {
+                    $imagen = $ruta_img;
+                }
+            } else {
+                $imagen = $imagen_old;
+            }
 
             $this->objCategorySub->update(
                 "category_sub",
                 "cat_sub_id='$id'",
                 array(
                 "cat_sub_name"=>"'$name'",
+                "cat_sub_img"=>"'$imagen'",
                 "cat_id"=>"'$cat'"));
             $this->consult();
     

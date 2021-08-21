@@ -25,6 +25,22 @@
             </select>
         </div>
     </div>
+    <div class="row mt-2">
+        <div class="col-12">
+            <div class="form-group">
+                <label>Imagen SubCategoria</label>
+                <input class="form-control" type="file" id="formFile" name="imagen">
+                <input class="form-control" type="hidden"  name="imagen_old">
+            </div>
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col-12">
+            <div class="form-group">
+                <img src="<?php echo $cat_sub['cat_sub_img']; ?>" alt="" width="150px" height="150px">
+            </div>
+        </div>
+    </div>
     <div class="modal-footer mt-3">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
         <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" onclick="loadData('CategorySub','update')">Guardar</button>

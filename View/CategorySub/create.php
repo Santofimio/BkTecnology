@@ -1,4 +1,4 @@
-<form id="form">
+<form id="form" enctype="multipart/form-data">
     <div class="row mt-2">
         <div class="col-12">
             <label>Nombre De la SubCategoria</label>
@@ -16,6 +16,14 @@
                 }
                 ?>
             </select>
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col-12">
+            <div class="form-group">
+                <label>Imagen SubCategoria</label>
+                <input class="form-control" type="file" name="imagen">
+            </div>
         </div>
     </div>
     <div class="modal-footer mt-3">

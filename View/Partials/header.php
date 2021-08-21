@@ -7,7 +7,7 @@
 
       <?php
       if (isset($_SESSION['id'])) {
-        echo "<div class='cart'>
+        echo "<div class='cart border-end me-1' onclick='getCart()'>
                       <span class='counter' id='counter'>" . $_SESSION['cart'] . "</span>
                       <img class='me-2' src='img/cart.png' alt='' width='50px' height='50px'>
                 </div>";
@@ -30,11 +30,11 @@
 <header class="navbar-dark d-flex justify-content-center nav-sup">
   <ul class="nav nav-pills text-white">
     <!-- <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li> -->
-    <li class="nav-item"><a href="#" class="nav-link text-white">Computadores</a></li>
-    <li class="nav-item"><a href="#" class="nav-link text-white">Celulares</a></li>
-    <li class="nav-item"><a href="#" class="nav-link text-white">Audio</a></li>
-    <li class="nav-item"><a href="#" class="nav-link text-white">Video</a></li>
-    <li class="nav-item"><a href="#" class="nav-link text-white">Tecno Hogar</a></li>
+    <li class="nav-item" onclick="getProductCat(2)"><a href="#" class="nav-link text-white">Computadores</a></li>
+    <li class="nav-item" onclick="getProductCat(1)"><a href="#" class="nav-link text-white">Celulares</a></li>
+    <li class="nav-item" onclick="getProductCat(4)"><a href="#" class="nav-link text-white">Audio</a></li>
+    <li class="nav-item" onclick="getProductCat(5)"><a href="#" class="nav-link text-white">Video</a></li>
+    <li class="nav-item" onclick="getProductCat(6)"><a href="#" class="nav-link text-white">Tecno Hogar</a></li>
   </ul>
 </header>
 <!-- <div class="modal fade text-black" id="exampleModalCenter" tabindex="-1" aria-labelledby="exampleModalCenterTitle" style="display: none;" aria-hidden="true" onchange="hidden()">

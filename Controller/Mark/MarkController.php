@@ -24,7 +24,7 @@ class MarkController
 
             $id = $this->objMark->autoIncrement("mark_id", "mark");
 
-            if ($_FILES['log']['name']) {
+            if (isset($_FILES['log']['name'])) {
                 $ext = explode(".", $_FILES['log']['name']);
                 $name_img = $id . '-' . $name;
                 $ruta_temp = $_FILES['log']['tmp_name'];
