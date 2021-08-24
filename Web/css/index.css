@@ -222,10 +222,16 @@
 }
 
 .col-sub-cat{
-  min-height: 400px;
-  height: 400px;
-  max-height: 400px;
-  max-width: 100%;
+  min-height: 430px;
+  height: 430px;
+  max-height: 430px;
+  max-width: 90%;
+  margin: auto;
+}
+
+.col-sub-cat img{
+  height: 80%;
+  width: 80%;
 }
 
 .poi{

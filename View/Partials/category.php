@@ -17,11 +17,9 @@
 
                             echo "<div class='col poi' onclick='getProductCatSub(" . $cs['cat_sub_id'] . ")'>
                             <div class='card shadow-sm col-sub-cat'>
-                                <img src='" . $cs['cat_sub_img'] . "' alt='' class='img-sub-cat'>
-
-                                <div class='card-body' style='
-                                margin: auto;'>
-                                <div class='text-center'>
+                                <img src='" . $cs['cat_sub_img'] . "' alt='' style='margin: auto;'>
+                                <div class='card-body'>
+                                <div class='text-center' style='margin: auto;'>
                                         <h2>" . $cs['cat_sub_name'] . "</h2>
                                     </div>
                                 </div>

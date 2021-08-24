@@ -236,7 +236,7 @@ class ProductController
         if (isset($_GET['buscar'])) {
 
             $buscar = $_GET['buscar'];
-            $Product = $this->objProduct->consult("*", "Product", "prov_nit LIKE '%$buscar%' or prov_name LIKE '%$buscar%'");
+            $product = $this->objProduct->consult("p.pro_id,p.pro_name,p.pro_summary,p.pro_price,c.cat_sub_name,pv.prov_name", "product p, category_sub c, provider pv", "p.cat_sub_id=c.cat_sub_id AND p.prov_id=pv.prov_id AND p.sta_id=4 AND pro_name LIKE '%$buscar%' or cat_sub_name LIKE '%$buscar%'");
             include_once '../View/Product/filter.php';
             $this->objProduct->close();
         } else {
@@ -246,11 +246,11 @@ class ProductController
 
     public function productIndex()
     {
-        $computadores = $this->objProduct->consult("p.pro_id,p.pro_name,p.pro_summary,p.pro_price,c.cat_sub_name,m.mark_name,m.mark_log", "product p, category_sub c, mark m", "p.cat_sub_id=c.cat_sub_id AND p.mark_id=m.mark_id AND c.cat_id=2 AND p.sta_id=4");
-        $celulares = $this->objProduct->consult("p.pro_id,p.pro_name,p.pro_summary,p.pro_price,c.cat_sub_name,m.mark_name,m.mark_log", "product p, category_sub c, mark m", "p.cat_sub_id=c.cat_sub_id AND p.mark_id=m.mark_id AND c.cat_id=1 AND p.sta_id=4");
-        $audio = $this->objProduct->consult("p.pro_id,p.pro_name,p.pro_summary,p.pro_price,c.cat_sub_name,m.mark_name,m.mark_log", "product p, category_sub c, mark m", "p.cat_sub_id=c.cat_sub_id AND p.mark_id=m.mark_id AND c.cat_id=4 AND p.sta_id=4");
-        $video = $this->objProduct->consult("p.pro_id,p.pro_name,p.pro_summary,p.pro_price,c.cat_sub_name,m.mark_name,m.mark_log", "product p, category_sub c, mark m", "p.cat_sub_id=c.cat_sub_id AND p.mark_id=m.mark_id AND c.cat_id=5 AND p.sta_id=4");
-        $hogar = $this->objProduct->consult("p.pro_id,p.pro_name,p.pro_summary,p.pro_price,c.cat_sub_name,m.mark_name,m.mark_log", "product p, category_sub c, mark m", "p.cat_sub_id=c.cat_sub_id AND p.mark_id=m.mark_id AND c.cat_id=6 AND p.sta_id=4");
+        $computadores = $this->objProduct->consult("p.pro_id,p.pro_name,p.pro_summary,p.pro_price,c.cat_sub_name,m.mark_name,m.mark_log", "product p, category_sub c, mark m", "p.cat_sub_id=c.cat_sub_id AND p.mark_id=m.mark_id AND c.cat_id=1 AND p.sta_id=4 ORDER by pro_id LIMIT 3");
+        $celulares = $this->objProduct->consult("p.pro_id,p.pro_name,p.pro_summary,p.pro_price,c.cat_sub_name,m.mark_name,m.mark_log", "product p, category_sub c, mark m", "p.cat_sub_id=c.cat_sub_id AND p.mark_id=m.mark_id AND c.cat_id=2 AND p.sta_id=4 ORDER by pro_id LIMIT 3");
+        $audio = $this->objProduct->consult("p.pro_id,p.pro_name,p.pro_summary,p.pro_price,c.cat_sub_name,m.mark_name,m.mark_log", "product p, category_sub c, mark m", "p.cat_sub_id=c.cat_sub_id AND p.mark_id=m.mark_id AND c.cat_id=3 AND p.sta_id=4 ORDER by pro_id LIMIT 3");
+        $video = $this->objProduct->consult("p.pro_id,p.pro_name,p.pro_summary,p.pro_price,c.cat_sub_name,m.mark_name,m.mark_log", "product p, category_sub c, mark m", "p.cat_sub_id=c.cat_sub_id AND p.mark_id=m.mark_id AND c.cat_id=4 AND p.sta_id=4 ORDER by pro_id LIMIT 3");
+        $hogar = $this->objProduct->consult("p.pro_id,p.pro_name,p.pro_summary,p.pro_price,c.cat_sub_name,m.mark_name,m.mark_log", "product p, category_sub c, mark m", "p.cat_sub_id=c.cat_sub_id AND p.mark_id=m.mark_id AND c.cat_id=5 AND p.sta_id=4 ORDER by pro_id LIMIT 3");
 
 
         include_once '../View/Partials/product.php';

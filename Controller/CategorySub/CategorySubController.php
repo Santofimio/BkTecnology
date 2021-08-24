@@ -97,7 +97,7 @@ class CategorySubController {
                 "cat_sub_name"=>"'$name'",
                 "cat_sub_img"=>"'$imagen'",
                 "cat_id"=>"'$cat'"));
-            $this->consult();
+             $this->consult();
     
         }else {
                 echo "No llegaron datos para Editar";
