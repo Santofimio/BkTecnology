@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="css/login.css">
     <title>Bk-Inicio Sesión</title>
 <body>
-    <div class="login-box">
+    <div class="login-box" id="csr">
         <h2>Inicio De Sesión</h2>
         <form id="sesion" >
           <div class="user-box">
@@ -17,13 +17,17 @@
             <input type="password" name="pass" id="pass" value="" required="">
             <label>Contraseña</label>
           </div>
-          <a onclick="login()" >
+          <a class="link" onclick="login()" >
             <span></span>
             <span></span>
             <span></span>
             <span></span>
             Entrar
           </a>
+          <div class="button-login">
+            <span class="link">Olvidaste tu Contraseña</span>
+            <span class="link" onclick="getRegistro()">Registrate</span>
+          </div>
         </form>
       </div>
       <script src="js/login.js"></script>

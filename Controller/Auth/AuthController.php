@@ -40,6 +40,8 @@ class AuthController
                     $c = mysqli_fetch_assoc($cart);
                     $cont_cart = $this->objAuth->consult("*","cart_detail","cart_id='".$c['cart_id']."'");
                     $_SESSION['cart'] = mysqli_num_rows($cont_cart);
+
+                    
                 }
                 
                 
@@ -66,6 +68,8 @@ class AuthController
         session_destroy();
         redirect("index.php");
     }
+
+    
 
     public function checkMail()
     {

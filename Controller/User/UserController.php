@@ -20,15 +20,16 @@ class UserController {
     {
         if(isset($_POST)){
 
-            if(!isset($_POST['pass'])){
-
-                $pass = md5("123456");
-                $rol = $_POST['rol'];
-                
+            if(isset($_SESSION['auth'])){
+                if($_SESSION['rol_id'] === 1){
+                    $pass = md5("123456");
+                    $rol = $_POST['rol'];
+                }else{
+                    echo "login.php";
+                }
             }else{
                 $pass = md5($_POST['pass']);
                 $rol = 3;
-
             }
 
             $name = $_POST['name'];
@@ -38,7 +39,16 @@ class UserController {
             
             $id = $this->objUser->autoIncrement("user_id","user");
             $this->objUser->create("user","user_id,user_name,user_last_name,user_email,user_pass,rol_id,sta_id","$id,'$name','$last_name','$email','$pass',$rol,$status");
-            $this->consult();
+            
+            if ($rol === 3) {
+                $cart_id = $this->objUser->autoIncrement("cart_id", "cart");
+                $this->objUser->create("cart", "cart_id,user_id", "'$cart_id ','$id'");
+                echo "login.php";
+            }else{
+                $this->consult();
+            }
+            
+            
 
         }else {
             echo "No llegaron los datos para Registrar";
