@@ -7,13 +7,13 @@
 
       <?php
       if (isset($_SESSION['id'])) {
-        echo "<div class='cart border-end me-1' onclick='getCart()'>
+        echo "<div class='cart border-end me-1 link' onclick='getCart()'>
                       <span class='counter' id='counter'>" . $_SESSION['cart'] . "</span>
                       <img class='me-2' src='img/cart.png' alt='' width='50px' height='50px'>
                 </div>";
 
         echo "<img class='me-2' src='img/usuario.png' alt='' width='50px' height='50px'>";
-        echo "<span class='me-2' id='dropdownMenu2' data-bs-toggle='dropdown' aria-expanded='false'>" . $_SESSION['nombre'] . " " . $_SESSION['apellido'] . "</span>";
+        echo "<span class='me-2 link' id='dropdownMenu2' data-bs-toggle='dropdown' aria-expanded='false'>" . $_SESSION['nombre'] . " " . $_SESSION['apellido'] . "</span>";
       } else {
         echo  "<a href='login.php'><button type='button' class='btn nav-sup text-white me-2'>Inicia Sesión</button></a>";
       }

@@ -295,3 +295,21 @@
   width: 50%;
   font-size: 33px;
 }
+
+.precio-c {
+  color: #DD171B;
+  font-weight: 500;
+  padding: 3px;
+  background: white;
+  margin: auto;
+  width: 80%;
+  margin-top: 2px;
+}
+
+.col-red{
+  color: #DD171B;
+}
+
+.link{
+  cursor: pointer;
+}

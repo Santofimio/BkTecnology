@@ -105,7 +105,7 @@ class ProductController
             $category_sub = $this->objProduct->consult("*", "category_sub", "cat_id=" . $cs['cat_id'] . "");
             $specifications = $this->objProduct->consult("pro_spe_id,pro_spe_description,spe_name,spe_tip_name", "product_specification ps,specification s,specification_type st", "ps.spe_id=s.spe_id AND s.spe_tip_id=st.spe_tip_id AND ps.pro_id=$id ");
             $specificationType = $this->objProduct->consult("*", "specification_type");
-            $product = $this->objProduct->consult("*", "Product", "pro_id=$id");
+            $product = $this->objProduct->consult("*", "product", "pro_id=$id");
             $product_img = $this->objProduct->consult("*", "product_img", "pro_id=$id");
             $pro = mysqli_fetch_assoc($product);
             $this->objProduct->close();
