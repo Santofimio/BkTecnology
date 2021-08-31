@@ -106,5 +106,24 @@ class CityController {
         }
 
     }
+
+    public function select()
+    {
+
+        if(isset($_POST['id'])){
+
+            $id = $_POST['id'];
+            $city = $this->objCity->consult("*","city","dep_id=$id");
+            $this->objCity->close();
+            echo "<option>seleccione...</option>";
+            foreach ($city as $c) {
+               echo "<option value='".$c['cit_id']."'>".$c['cit_name']."</option>";
+            }
+
+        }else {
+            echo "No llegaron datos para el select";
+        }
+
+    }
 }
 ?>

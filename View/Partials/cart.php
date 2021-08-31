@@ -82,6 +82,7 @@
           <div class="row">
               <span class="col-6">Total</span>
               <strong class="col-6 col-red text-end" id="cont-total">$<?php echo $total; ?></strong>
+              <input type="hidden" id="total" value="<?php echo $total; ?>">
           </div>
         </form>
         <div class="row mt-3" id="btn-getPay">

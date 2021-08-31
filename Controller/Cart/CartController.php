@@ -19,15 +19,16 @@ class CartController
 
             $cart = $this->objCart->consult("*", "cart", "user_id='$user_id'");
 
-            if (mysqli_num_rows($cart) == 0) {
+            if (mysqli_num_rows($cart) > 0) {
 
-                $cart_id = $this->objCart->autoIncrement("cart_id", "cart");
-                $this->objCart->create("cart", "cart_id,user_id", "'$cart_id ','$user_id'");
-                $cart = $this->objCart->consult("*", "cart", "user_id='$user_id'");
-            }else{
                 foreach ($cart as $ct) {
                     $cart_id = $ct['cart_id'];
                 }
+                
+            }else{
+                $cart_id = $this->objCart->autoIncrement("cart_id", "cart");
+                $this->objCart->create("cart", "cart_id,user_id", "'$cart_id ','$user_id'");
+                $cart = $this->objCart->consult("*", "cart", "user_id='$user_id'");
             }
 
             if (isset($_POST['id'])) {
@@ -35,21 +36,10 @@ class CartController
                 $pro_id = $_POST['id'];
                 $cant = $_POST['cant'];
 
-                
                 $cont_cart = $this->objCart->consult("*", "cart_detail", "pro_id='$pro_id'");
 
                 
-
-                if (mysqli_num_rows($cont_cart) <= 1) {
-
-                    foreach ($cart as $c) {
-                        $cart_det = $this->objCart->autoIncrement("cart_det_id", "cart_detail");
-                        $this->objCart->create("cart_detail", "cart_det_id,cart_id,pro_id,quantity", "'$cart_det','" . $c['cart_id'] . "','$pro_id',$cant");
-                        $cart_id = $c['cart_id'];
-                    }
-                    
-                }else{
-                    // echo mysqli_num_rows($cont_cart);
+                if (mysqli_num_rows($cont_cart) > 0) {
 
                     foreach ($cont_cart as $c) {
                         $quantity = $c['quantity']+$cant;
@@ -59,13 +49,20 @@ class CartController
                         "pro_id='$pro_id'",
                         array(
                         "quantity"=>"'$quantity'"));
+
+                }else{
+                    foreach ($cart as $c) {
+                        $cart_det = $this->objCart->autoIncrement("cart_det_id", "cart_detail");
+                        $this->objCart->create("cart_detail", "cart_det_id,cart_id,pro_id,quantity", "'$cart_det','" . $c['cart_id'] . "','$pro_id',$cant");
+                        $cart_id = $c['cart_id'];
+                    }
                 }
                 
 
                 $cont = $this->objCart->consult("*", "cart_detail", "cart_id='$cart_id'");
-
                 $_SESSION['cart'] = mysqli_num_rows($cont);
                 echo $_SESSION['cart'];
+
             } else {
                 echo "No llego el codigo del producto";
             }

@@ -1,4 +1,4 @@
-<div class="container-fluid bg-dark">
+<div class="container bg-dark">
   <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 ">
     <a href="index.php" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 p-2 text-dark text-decoration-none">
       <img src="img/log.png" alt="" width="200px" height="50px">
@@ -37,31 +37,3 @@
     <li class="nav-item" onclick="getProductCat(5)"><a href="#" class="nav-link text-white">Tecno Hogar</a></li>
   </ul>
 </header>
-<!-- <div class="modal fade text-black" id="exampleModalCenter" tabindex="-1" aria-labelledby="exampleModalCenterTitle" style="display: none;" aria-hidden="true" onchange="hidden()">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalCenterTitle">Inicia Sesión</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form>
-          <div class="mt-2">
-            <label for="email" class="form-label">Correo Electrónico</label>
-            <input type="email" class="form-control" id="email" name="email" placeholder="Correo">
-          </div>
-          <div class="" id="container-form">
-            
-
-
-
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-primary" onclick="checkMail()">Siguiente</button>
-      </div>
-    </div>
-  </div>
-</div> -->

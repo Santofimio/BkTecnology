@@ -18,6 +18,7 @@
   <link href="css/index.css" rel="stylesheet">
   <link href="css/product.css" rel="stylesheet">
 
+
   <style>
     .bd-placeholder-img {
       font-size: 1.125rem;
@@ -39,8 +40,13 @@
 
 
 </head>
-<body onload="loadIndex()" class="bg-body">
-
+<?php  
+  if (isset($_GET['viewInvoice'])) {
+    echo "<body onload='loadInvoice()' class='bg-body' id='body'>";
+  }else{
+    echo "<body onload='loadIndex()' class='bg-body'>";
+  }
+?>
 
 
 

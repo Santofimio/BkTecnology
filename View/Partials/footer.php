@@ -29,6 +29,7 @@
 <!-- <script src="bootstrap-5/js/bootstrap.js"></script> -->
 <script src="bootstrap-5/js/bootstrap.bundle.min.js"></script>
 <script src="js/index.js"></script>
+<script src="assets/assets_invoice/js/main.js"></script>
 </body>
 
 </html>

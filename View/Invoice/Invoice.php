@@ -5,11 +5,11 @@
     <div class="card-header">
         Datos personales
     </div>
-    <form class="needs-validation p-3" validate id="form">
+    <form class="needs-validation p-3" validate id="form" method="POST" action="<?php echo getUrl("Invoice","Invoice","createInvoice",false,"fecth") ?>">
         <div class="row g-3">
             <div class="col-sm-6">
                 <label for="firstName" class="form-label">Nombres</label>
-                <input type="text" class="form-control" id="firstName" name="name" placeholder="" value="<?php echo $_SESSION['nombre']?>" required="" readonly> 
+                <input type="text" class="form-control" id="firstName" name="name" placeholder="" value="<?php echo $_SESSION['nombre'] ?>" required="" readonly>
                 <div class="invalid-feedback">
                     Valid first name is required.
                 </div>
@@ -17,7 +17,7 @@
 
             <div class="col-sm-6">
                 <label for="lastName" class="form-label">Apellidos</label>
-                <input type="text" class="form-control" id="lastName" name="last_name" placeholder="" value="<?php echo $_SESSION['apellido']?>" required="" readonly>
+                <input type="text" class="form-control" id="lastName" name="last_name" placeholder="" value="<?php echo $_SESSION['apellido'] ?>" required="" readonly>
                 <div class="invalid-feedback">
                     Valid last name is required.
                 </div>
@@ -25,7 +25,7 @@
 
             <div class="col-6">
                 <label for="email" class="form-label">Correo<span class="text-muted"></span></label>
-                <input type="email" class="form-control" id="email" name="email" required="" value="<?php echo $_SESSION['email']?>" readonly>
+                <input type="email" class="form-control" id="email" name="email" required="" value="<?php echo $_SESSION['email'] ?>" readonly>
                 <div class="invalid-feedback">
                     Please enter a valid email address for shipping updates.
                 </div>
@@ -49,16 +49,16 @@
 
             <div class="col-12">
                 <label for="address2" class="form-label">Dirección 2 <span class="text-muted">(Optional)</span></label>
-                <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
+                <input type="text" class="form-control" name="address2" placeholder="Apartment or suite">
             </div>
 
             <div class="col-md-5">
                 <label for="country" class="form-label">Departamento</label>
-                <select class="form-select" id="depto" name="depto" required="">
+                <select class="form-select" id="depto" name="depto" required="" onchange="sd('City','depto','city')">
                     <option value="">Seleccione...</option>
-                    <?php 
+                    <?php
                     foreach ($depto as $dep) {
-                        echo "<option value='".$dep['dep_id']."'>".$dep['dep_name']."</option>";
+                        echo "<option value='" . $dep['dep_id'] . "'>" . $dep['dep_name'] . "</option>";
                     }
                     ?>
                 </select>
@@ -69,8 +69,7 @@
 
             <div class="col-md-4">
                 <label for="state" class="form-label">Ciudad</label>
-                <select class="form-select" id="ciudad" name="ciudad" required="">
-                    <option value="">Seleccione...</option>
+                <select class="form-select" id="city" name="city" required="">
                 </select>
                 <div class="invalid-feedback">
                     Please provide a valid state.
@@ -79,7 +78,7 @@
 
             <div class="col-md-3">
                 <label for="zip" class="form-label">Barrio</label>
-                <input type="text" class="form-control" id="barrio" placeholder="" required="">
+                <input type="text" class="form-control" name="barrio" placeholder="" required="">
                 <div class="invalid-feedback">
                     Zip code required.
                 </div>
@@ -91,60 +90,34 @@
         <h4 class="mb-3">Metodos De Pago</h4>
 
         <div class="my-3 row">
-            <div class="col">
+            <!-- <div class="col">
                 <input id="credit" name="paymentMethod" type="radio" class="form-check-input link" checked="" required="">
                 <img src="img/MediosDePago/mastercard-icon.png" alt="" width="66px" height="66px">
                 <label class="form-check-label" for="credit">Master Card</label>
+            </div> -->
+            <div class="col">
+                <input id="credit-card" name="pay" type="radio" class="form-check-input link" required="" onchange="payForm('form-card')" value="1">
+                <img src="img/MediosDePago/tarjetaCredito.png" alt="" width="66px" height="66px">
+                <label class="form-check-label" for="paypal">tarjeta De Credito</label>
             </div>
             <div class="col">
-                <input id="paypal" name="paymentMethod" type="radio" class="form-check-input link" required="">
-                <img src="img/MediosDePago/visa-Logo.png" alt="" width="66px" height="66px">
-                <label class="form-check-label" for="paypal">Visa</label>
-            </div>
-            <div class="col">
-                <input id="paypal" name="paymentMethod" type="radio" class="form-check-input link" required="">
+                <input id="paypal" name="pay" type="radio" class="form-check-input link" required="" onchange="payForm('form-pse')" value="2">
                 <img src="img/MediosDePago/pse-icon.png" alt="" width="66px" height="66px">
                 <label class="form-check-label" for="paypal">PSE</label>
             </div>
         </div>
-
-        <div class="row gy-3" style="display: none;">
-            <div class="col-md-6">
-                <label for="cc-name" class="form-label">Name on card</label>
-                <input type="text" class="form-control" id="cc-name" placeholder="" required="">
-                <small class="text-muted">Full name as displayed on card</small>
-                <div class="invalid-feedback">
-                    Name on card is required
-                </div>
-            </div>
-
-            <div class="col-md-6">
-                <label for="cc-number" class="form-label">Credit card number</label>
-                <input type="text" class="form-control" id="cc-number" placeholder="" required="">
-                <div class="invalid-feedback">
-                    Credit card number is required
-                </div>
-            </div>
-
-            <div class="col-md-3">
-                <label for="cc-expiration" class="form-label">Expiration</label>
-                <input type="text" class="form-control" id="cc-expiration" placeholder="" required="">
-                <div class="invalid-feedback">
-                    Expiration date required
-                </div>
-            </div>
-
-            <div class="col-md-3">
-                <label for="cc-cvv" class="form-label">CVV</label>
-                <input type="text" class="form-control" id="cc-cvv" placeholder="" required="">
-                <div class="invalid-feedback">
-                    Security code required
-                </div>
+        <div class="card" style="display: none;" id="form-card">
+            
+        </div>
+        <div class="card" style="display: none;" id="form-pse"> 
+            <div class="card-body">
+                <span>Sera redirijido a la plataforma de PSE</span>
+                <span>para completar el pago</span>
             </div>
         </div>
+        <input type="hidden" name="total" value="" id="input-total">
+        <hr class="">
 
-        <hr class="my-4">
-
-        <button class="w-100 btn btn-success btn-lg" type="submit">Verificar Pago</button>
+        <button class="w-100 btn btn-success btn-lg" type="submit" onclick="verificarPay(this)">Verificar Pago</button>
     </form>
 </div>
