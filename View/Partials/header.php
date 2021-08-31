@@ -30,10 +30,10 @@
 <header class="navbar-dark d-flex justify-content-center nav-sup">
   <ul class="nav nav-pills text-white">
     <!-- <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li> -->
-    <li class="nav-item" onclick="getProductCat(1)"><a href="#" class="nav-link text-white">Computadores</a></li>
-    <li class="nav-item" onclick="getProductCat(2)"><a href="#" class="nav-link text-white">Celulares</a></li>
-    <li class="nav-item" onclick="getProductCat(3)"><a href="#" class="nav-link text-white">Audio</a></li>
-    <li class="nav-item" onclick="getProductCat(4)"><a href="#" class="nav-link text-white">Video</a></li>
-    <li class="nav-item" onclick="getProductCat(5)"><a href="#" class="nav-link text-white">Tecno Hogar</a></li>
+    <li class="nav-item" onclick="getProductCat(1)"><a class="nav-link text-white link">Computadores</a></li>
+    <li class="nav-item" onclick="getProductCat(2)"><a class="nav-link text-white link">Celulares</a></li>
+    <li class="nav-item" onclick="getProductCat(3)"><a class="nav-link text-white link">Audio</a></li>
+    <li class="nav-item" onclick="getProductCat(4)"><a class="nav-link text-white link">Video</a></li>
+    <li class="nav-item" onclick="getProductCat(5)"><a class="nav-link text-white link">Tecno Hogar</a></li>
   </ul>
 </header>

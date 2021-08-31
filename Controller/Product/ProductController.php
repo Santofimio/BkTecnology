@@ -261,7 +261,7 @@ class ProductController
     {
         if (isset($_POST['id'])) {
             $id = $_POST['id'];
-            $product = $this->objProduct->consult("p.pro_id,p.pro_name,p.pro_summary,p.pro_price,cs.cat_sub_name,c.cat_name, m.mark_name,m.mark_log", "product p, category_sub cs, category c, mark m", "p.cat_sub_id=cs.cat_sub_id AND cs.cat_id=c.cat_id AND p.mark_id=m.mark_id AND p.pro_id=$id AND p.sta_id=4");
+            $product = $this->objProduct->consult("p.pro_id,p.pro_name,p.pro_summary,p.pro_price,cs.cat_sub_id,cs.cat_sub_name,c.cat_id,c.cat_name, m.mark_name,m.mark_log", "product p, category_sub cs, category c, mark m", "p.cat_sub_id=cs.cat_sub_id AND cs.cat_id=c.cat_id AND p.mark_id=m.mark_id AND p.pro_id=$id AND p.sta_id=4");
             $pro = mysqli_fetch_assoc($product);
             $specifications = $this->objProduct->consult("pro_spe_id,pro_spe_description,spe_name,st.spe_tip_name,st.spe_tip_id", "product_specification ps,specification s,specification_type st", "ps.spe_id=s.spe_id AND s.spe_tip_id=st.spe_tip_id AND ps.pro_id=$id ");
             $product_img = $this->objProduct->consult("*", "product_img", "pro_id=$id");
@@ -299,7 +299,7 @@ class ProductController
         if (isset($_POST['cat_sub'])) {
             $cat_sub = $_POST['cat_sub'];
             $products = $this->objProduct->consult("p.pro_id,p.pro_name,p.pro_summary,p.pro_price,cs.cat_sub_name,c.cat_name, m.mark_name,m.mark_log", "product p, category_sub cs, category c, mark m", "p.cat_sub_id=cs.cat_sub_id AND cs.cat_id=c.cat_id AND p.mark_id=m.mark_id AND p.cat_sub_id=$cat_sub AND p.sta_id=4");
-            $cat_sub = $this->objProduct->consult("c.cat_name, cs.cat_sub_name", "category_sub cs, category c", "c.cat_id=cs.cat_id AND cs.cat_sub_id=$cat_sub");
+            $cat_sub = $this->objProduct->consult("c.cat_id,c.cat_name, cs.cat_sub_id,cs.cat_sub_name", "category_sub cs, category c", "c.cat_id=cs.cat_id AND cs.cat_sub_id=$cat_sub");
             foreach ($cat_sub as $cs) {}
             // $specifications = $this->objProduct->consult("pro_spe_id,pro_spe_description,spe_name,st.spe_tip_name,st.spe_tip_id", "product_specification ps,specification s,specification_type st", "ps.spe_id=s.spe_id AND s.spe_tip_id=st.spe_tip_id AND ps.pro_id=$id ");
             // $product_img = $this->objProduct->consult("*", "product_img", "pro_id=$id");

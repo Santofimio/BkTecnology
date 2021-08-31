@@ -2,9 +2,9 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: localhost
--- Tiempo de generación: 31-08-2021 a las 10:10:42
--- Versión del servidor: 10.4.19-MariaDB
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 31-08-2021 a las 23:29:58
+-- Versión del servidor: 10.4.18-MariaDB
 -- Versión de PHP: 8.0.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -243,7 +243,8 @@ INSERT INTO `mark` (`mark_id`, `mark_name`, `mark_log`) VALUES
 (8, 'BOSE', 'img/mark/8-BOSE.svg'),
 (9, 'VTA', 'img/mark/9-VTA.png'),
 (10, 'Canon', 'img/mark/10-Canon.png'),
-(11, 'TP-LINK', 'img/mark/11-TP-LINK.svg');
+(11, 'TP-LINK', 'img/mark/11-TP-LINK.svg'),
+(12, 'Lenovo', 'img/mark/12-Lenovo.png');
 
 -- --------------------------------------------------------
 
@@ -302,8 +303,14 @@ INSERT INTO `product` (`pro_id`, `pro_name`, `pro_summary`, `pro_price`, `pro_st
 (13, 'Router TP-LINK   ', 'Necesitas cobertura Y quieres un router de alta potencia para tus zonas sin Wifi', 259900, 33, 13, 12, 11, 4),
 (14, 'Combo VTA Plug Inteligente + Rose', 'Completa cualquier habitación con el combo VTA Casa Inteligente. Diseñada para adaptarse a tu estilo de vida móvil al mismo tiempo que crea un entorno más seguro tanto dentro como fuera del hogar, la marca unifica una extensa gama de productos plenamente integrados a través de una aplicación única, muy fácil de usar , puedes ejercer control, programar y hacer funcionar los dispositivos en el horario que más te acomode aun cuando estés fuera de casa.', 89900, 33, 14, 10, 9, 4),
 (15, 'Alarma Detector VTA Humo  ', 'Detector de humo, ideal para identificar de manera inmediata, incidentes con fuego en nuestro hogar evitando situaciones peligrosas para nuestra familia.', 140999, 33, 15, 10, 9, 4),
-(16, 'Tripode', 'trípode ', 60000, 33, 12, 11, 10, 4),
-(17, 'Computador All In One HP', 'Tu computador de alto rendimiento, confiable y seguro. Disfruta de este hermoso computador que combina el diseño ergonómico, funcionalidad y poder, dándote seguridad y confianza para que todos en tu familia lo utilicen sin ninguna preocupación. Innovación inteligente, con pantalla Full HD ajustable y camara de de privacidad con sistema de bloqueo, hecha para que la utilices con confianza. El rendimiento destacado del procesador Intel® Core™ de 10.ª generación satisface fácilmente las exigencias de los multimedios. Al contar con capacidades mejoradas de la pantalla y las opciones ultrarrápidas de Wi-Fi 6, podrás completar tus tareas sin interrupciones. Tú máximo desempeño nunca fue tan fácil de alcanzar. Equilibrio perfecto entre funcionalidad y poder listo para cualquier situación.', 1815000, 33, 5, 4, 3, 4);
+(16, 'Tripode ', 'trípode ', 60000, 33, 12, 11, 10, 4),
+(17, 'Computador All In One HP ', 'Tu computador de alto rendimiento, confiable y seguro. Disfruta de este hermoso computador que combina el diseño ergonómico, funcionalidad y poder, dándote seguridad y confianza para que todos en tu familia lo utilicen sin ninguna preocupación. Innovación inteligente, con pantalla Full HD ajustable y camara de de privacidad con sistema de bloqueo, hecha para que la utilices con confianza. El rendimiento destacado del procesador Intel® Core™ de 10.ª generación satisface fácilmente las exigencias de los multimedios. Al contar con capacidades mejoradas de la pantalla y las opciones ultrarrápidas de Wi-Fi 6, podrás completar tus tareas sin interrupciones. Tú máximo desempeño nunca fue tan fácil de alcanzar. Equilibrio perfecto entre funcionalidad y poder listo para cualquier situación.', 1815000, 33, 5, 4, 3, 4),
+(18, 'Unidad Estado Solido ADATA', 'la unidad de estado sólido de Adata Ultimate SU650 mejora la capacidad de respuesta de su sistema existente con tiempos de arranque, carga y transferencia de archivos increíbles en comparación con los discos duros mecánicos.', 239000, 33, 6, 1, 4, 4),
+(19, 'Clear Case APPLE iPhone XR', 'Esta compacta funda es fácil de sujetar y protege tu iPhone XR dando todo el protagonismo a su diseño.', 199000, 33, 2, 8, 7, 4),
+(20, 'Apple Watch Series 5 ', 'El Apple Watch Series 5 con conexión celular te permite salir sin tu teléfono y seguir conectado.', 2429000, 33, 3, 8, 7, 4),
+(21, 'Micrófono TRUST Alámbrico USB', 'Independientemente de si está en streaming desde YouTube, Twitch, Facebook o un vlog, hace podcasting, graba locuciones o música acústica, es imprescindible que el sonido sea profesional. Este micrófono USB profesional para estudio con brazo ajustable y patrón de grabación cardioide de alta precisión es perfecto para todos los sonidos. ¡Que se oiga su voz!', 593000, 33, 9, 10, 9, 4),
+(22, 'Computador All In One LENOVO', 'El nuevo Idea Centre™ AIO 3, un rendimiento potente se une a una ingeniería elegante. Maneja aplicaciones exigentes con facilidad gracias a la capacidad de respuesta ultrarrápida de hasta un procesador móvil AMD Ryzen™ 5 4500U, memoria DDR4 sin interrupciones y almacenamiento de gran capacidad. Cuenta con un elegante soporte y una pantalla casi sin bordes. Y también te da más espacio en el escritorio. Su Pantalla de amplia junto a una resolución Full HD te entrega un espacio visual sorprendente.', 2249000, 33, 5, 4, 12, 4),
+(23, 'Computador All in One ASUS', 'La increíblemente bella PC todo en uno Vivo AiO M241 tiene un bisel de pantalla de 2 mm casi invisible que te ofrece imágenes de borde a borde y una increíble proporción de pantalla a cuerpo del 88%. Con una pantalla LED Full HD de 23.8 pulgadas y un avanzado sonido ASUS SonicMaster con un sistema de altavoces con reflejo de bajos, Vivo AiO M241 te sumerge en increíbles efectos visuales y un sonido excelente para la mejor experiencia de entretenimiento. El ASUS Vivo AiO M241 tiene cuatro puertos USB 3.2 Gen 1 montados en la parte trasera para transferencias de datos de alta velocidad que son hasta 10 veces más rápidas que USB 2.0. Y para su comodidad, también hay un puerto USB 2.0 y una toma de audio ubicada al alcance de la mano, en el borde inferior de la pantalla', 1750000, 33, 5, 5, 2, 4);
 
 -- --------------------------------------------------------
 
@@ -343,13 +350,38 @@ INSERT INTO `product_img` (`pro_img_id`, `pro_img_name`, `pro_img_url`, `pro_id`
 (23, 'product-1-23', 'img/product/product-1-23.jfif', 1),
 (24, 'product-1-24', 'img/product/product-1-24.jfif', 1),
 (25, 'product-1-25', 'img/product/product-1-25.jfif', 1),
-(26, 'product-16-26', '', 16),
-(27, 'product-16-27', '', 16),
-(28, 'product-17-28', '', 17),
-(29, 'product-17-29', '', 17),
-(30, 'product-17-30', '', 17),
-(31, 'product-17-31', '', 17),
-(32, 'product-17-32', '', 17);
+(28, 'product-17-28', 'img/product/product-17-28.png', 17),
+(29, 'product-17-29', 'img/product/product-17-29.png', 17),
+(30, 'product-17-30', 'img/product/product-17-30.png', 17),
+(31, 'product-17-31', 'img/product/product-17-31.png', 17),
+(32, 'product-17-32', 'img/product/product-17-32.png', 17),
+(33, 'product-18-33', 'img/product/product-18-33.png', 18),
+(34, 'product-18-34', 'img/product/product-18-34.png', 18),
+(35, 'product-18-35', 'img/product/product-18-35.png', 18),
+(36, 'product-18-36', 'img/product/product-18-36.png', 18),
+(37, 'product-19-37', 'img/product/product-19-37.png', 19),
+(38, 'product-19-38', 'img/product/product-19-38.jfif', 19),
+(39, 'product-19-39', 'img/product/product-19-39.jfif', 19),
+(40, 'product-19-40', 'img/product/product-19-40.jfif', 19),
+(41, 'product-19-41', 'img/product/product-19-41.jfif', 19),
+(42, 'product-20-42', 'img/product/product-20-42.png', 20),
+(43, 'product-20-43', 'img/product/product-20-43.jfif', 20),
+(44, 'product-20-44', 'img/product/product-20-44.jfif', 20),
+(46, 'product-20-46', 'img/product/product-20-46.jfif', 20),
+(47, 'product-21-47', 'img/product/product-21-47.png', 21),
+(48, 'product-21-48', 'img/product/product-21-48.jfif', 21),
+(49, 'product-21-49', 'img/product/product-21-49.jfif', 21),
+(50, 'product-16-50', 'img/product/product-16-50.png', 16),
+(51, 'product-22-51', 'img/product/product-22-51.png', 22),
+(52, 'product-22-52', 'img/product/product-22-52.jfif', 22),
+(53, 'product-22-53', 'img/product/product-22-53.jfif', 22),
+(54, 'product-22-54', 'img/product/product-22-54.jfif', 22),
+(55, 'product-22-55', 'img/product/product-22-55.jfif', 22),
+(56, 'product-23-56', 'img/product/product-23-56.png', 23),
+(57, 'product-23-57', 'img/product/product-23-57.jfif', 23),
+(58, 'product-23-58', 'img/product/product-23-58.jfif', 23),
+(59, 'product-23-59', 'img/product/product-23-59.jfif', 23),
+(60, 'product-23-60', 'img/product/product-23-60.jfif', 23);
 
 -- --------------------------------------------------------
 
@@ -417,7 +449,22 @@ INSERT INTO `product_specification` (`pro_spe_id`, `pro_spe_description`, `pro_i
 (49, 'A514-53-570S', 1, 13),
 (50, 'r-589534', 16, 13),
 (51, '24-df0007la', 17, 13),
-(52, '4 Gb', 17, 3);
+(52, '4 Gb', 17, 3),
+(53, 'SU650', 18, 13),
+(54, '256GB', 18, 5),
+(55, 'Transparente ', 19, 14),
+(56, 'Series 5', 20, 13),
+(57, '3200  MB', 20, 5),
+(58, 'GXT 252', 21, 13),
+(59, 'F0EW0054LD ', 22, 13),
+(60, '4GB', 22, 3),
+(61, 'Ryzen 5', 22, 8),
+(62, 'AMD', 22, 6),
+(63, 'M241DAK-BA028T', 23, 13),
+(64, 'AMD', 23, 6),
+(65, 'Athlon Silver', 23, 8),
+(66, '4 GB', 23, 3),
+(67, '1TB', 23, 5);
 
 -- --------------------------------------------------------
 
@@ -582,11 +629,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`user_id`, `user_name`, `user_last_name`, `user_email`, `user_pass`, `created_at`, `updated_at`, `rol_id`, `sta_id`) VALUES
 (1, 'Luis Felipe', 'Santofimio Ramirez', 'lfsantofimio4@misena.edu.co', 'e10adc3949ba59abbe56e057f20f883e', '2021-07-15 04:08:34', '2021-08-03 19:52:45', 1, 1),
-(2, 'Jamund', 'Pere', 'lfsa@misena.edu.co', '300272b11a115cf2daba3cdb5d967971', '2021-07-15 04:34:35', '2021-08-03 19:50:42', 2, 2),
-(3, 'jose', 'santo', 'jose@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '2021-08-24 22:14:16', '2021-08-24 22:14:16', 3, 1),
-(4, '', '', '', 'd41d8cd98f00b204e9800998ecf8427e', '2021-08-27 04:34:30', '2021-08-27 04:34:30', 3, 1),
-(5, '', '', '', 'd41d8cd98f00b204e9800998ecf8427e', '2021-08-27 04:34:50', '2021-08-27 04:34:50', 3, 1),
-(6, '', '', '', 'd41d8cd98f00b204e9800998ecf8427e', '2021-08-27 05:03:51', '2021-08-27 05:03:51', 3, 1);
+(3, 'felipe', 'santo', 'felipe@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '2021-08-24 22:14:16', '2021-08-31 18:35:23', 3, 1);
 
 --
 -- Índices para tablas volcadas

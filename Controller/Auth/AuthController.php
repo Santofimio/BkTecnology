@@ -45,8 +45,12 @@ class AuthController
                         $_SESSION['rol'] = $r['rol_name'];
                         $cart = $this->objAuth->consult("*", "cart", "user_id='" . $u['user_id'] . "'");
                         $c = mysqli_fetch_assoc($cart);
-                        $cont_cart = $this->objAuth->consult("*", "cart_detail", "cart_id='" . $c['cart_id'] . "'");
-                        $_SESSION['cart'] = mysqli_num_rows($cont_cart);
+                        
+                        if (mysqli_num_rows($cart) > 0) {
+                            $cont_cart = $this->objAuth->consult("*", "cart_detail", "cart_id='" . $c['cart_id'] . "'");
+                            $_SESSION['cart'] = mysqli_num_rows($cont_cart);
+                        }
+                        
                     }
 
 

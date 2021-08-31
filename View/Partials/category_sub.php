@@ -1,15 +1,10 @@
-<header class="navbar-dark d-flex text-white">
-    <ul class="nav nav-pills text-white">
-        <?php
-
-
-
-        ?>
-        <li class="nav-item"><a href="#" class="nav-link text-white"><?php echo $cs['cat_name'] ?></a></li>
-        <li class="nav-item"><a href="#" class="nav-link text-white">---</a></li>
-        <li class="nav-item"><a href="#" class="nav-link text-white"><?php echo $cs['cat_sub_name'] ?></a></li>
-    </ul>
-</header>
+<div class="mt-2">
+    <tr>
+        <td><span class="text-white mt-5 ms-4 me-3 mb-3 link" onclick="getProductCat(<?php echo $cs['cat_id']; ?>)"><?php echo $cs['cat_name'] ?></span></td>
+        <td><span class="text-white mt-5 ms-3 me-3 mb-3">---</span></td>
+        <td><span class="text-white mt-5 ms-3 me-3 mb-3 link" onclick="getProductCatSub(<?php echo $cs['cat_sub_id']; ?>)"><?php echo $cs['cat_sub_name'] ?></span></td>
+    </tr>
+</div>
 <main id="container-category" class="row">
     <!-- <div class="col-3">
             

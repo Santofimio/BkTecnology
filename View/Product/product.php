@@ -1,4 +1,4 @@
-<div class="container text-white">
+<div class="container-fluid text-white">
     <header class="navbar-dark d-flex">
         <ul class="nav nav-pills text-white">
             <li class="nav-item"><a href="#" class="nav-link text-white"><?php echo $pro['cat_name'] ?></a></li>
