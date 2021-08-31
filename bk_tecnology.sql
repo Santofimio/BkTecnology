@@ -2,9 +2,9 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 26-08-2021 a las 06:37:48
--- Versión del servidor: 10.4.18-MariaDB
+-- Servidor: localhost
+-- Tiempo de generación: 31-08-2021 a las 10:10:42
+-- Versión del servidor: 10.4.19-MariaDB
 -- Versión de PHP: 8.0.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -37,8 +37,7 @@ CREATE TABLE `cart` (
 --
 
 INSERT INTO `cart` (`cart_id`, `user_id`) VALUES
-(1, 1),
-(2, 3);
+(1, 3);
 
 -- --------------------------------------------------------
 
@@ -52,15 +51,6 @@ CREATE TABLE `cart_detail` (
   `pro_id` int(11) NOT NULL,
   `quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
---
--- Volcado de datos para la tabla `cart_detail`
---
-
-INSERT INTO `cart_detail` (`cart_det_id`, `cart_id`, `pro_id`, `quantity`) VALUES
-(1, 1, 1, 1),
-(2, 2, 2, 1),
-(3, 2, 6, 1);
 
 -- --------------------------------------------------------
 
@@ -103,7 +93,7 @@ CREATE TABLE `category_sub` (
 
 INSERT INTO `category_sub` (`cat_sub_id`, `cat_sub_name`, `cat_sub_img`, `cat_id`) VALUES
 (1, 'Celular', 'img/categorySub/1-Celular.png', 2),
-(2, 'Accesorios Celulares', '', 2),
+(2, 'Accesorios Celulares', 'img/categorySub/2-AccesoriosCelulares.png', 2),
 (3, 'Smartwatch', 'img/categorySub/3-Smartwatch.png', 2),
 (4, 'Computadores Portátiles', 'img/categorySub/4-Computadores Portátiles.png', 1),
 (5, 'Computadores de Escritorio', 'img/categorySub/5-Computadores de Escritorio.png', 1),
@@ -112,9 +102,9 @@ INSERT INTO `category_sub` (`cat_sub_id`, `cat_sub_name`, `cat_sub_img`, `cat_id
 (8, 'Audio-Portable', 'img/categorySub/8-Audio-Portable.png', 3),
 (9, 'Audio-Accesorios', 'img/categorySub/9-Audio-Accesorios.png', 3),
 (10, 'Proyectores', 'img/categorySub/10-Proyectores.png', 4),
-(11, 'Cámaras de video', 'img/categorySub/11-Cámaras de video.png', 4),
+(11, 'Cámaras de video', 'img/categorySub/10-Cámaras de video.png', 4),
 (12, 'Accesorios-Video', 'img/categorySub/12-Accesorios-Video.png', 4),
-(13, 'Red', 'img/categorySub/13-Red.png', 5),
+(13, 'Red', 'img/categorySub/12-Red.png', 5),
 (14, 'Iluminacion', 'img/categorySub/14-Iluminacion.png', 5),
 (15, 'Seguridad', 'img/categorySub/15-Seguridad.png', 5);
 
@@ -148,11 +138,18 @@ CREATE TABLE `customer` (
   `cus_id` int(11) NOT NULL,
   `cus_tel` varchar(300) COLLATE utf8_spanish_ci NOT NULL,
   `cus_address_sh` varchar(300) COLLATE utf8_spanish_ci NOT NULL,
-  `cus_address_sh_two` varchar(300) COLLATE utf8_spanish_ci NOT NULL,
+  `cus_address_sh_two` varchar(300) COLLATE utf8_spanish_ci DEFAULT NULL,
   `cus_district` varchar(300) COLLATE utf8_spanish_ci NOT NULL,
   `cit_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `customer`
+--
+
+INSERT INTO `customer` (`cus_id`, `cus_tel`, `cus_address_sh`, `cus_address_sh_two`, `cus_district`, `cit_id`, `user_id`) VALUES
+(1, '566666', 'calle 80c # 26', '', 'los naranjos', 3, 3);
 
 -- --------------------------------------------------------
 
@@ -182,11 +179,19 @@ INSERT INTO `department` (`dep_id`, `dep_name`) VALUES
 
 CREATE TABLE `invoice` (
   `inv_id` int(11) NOT NULL,
-  `inv_date` datetime NOT NULL,
+  `inv_date` timestamp NOT NULL DEFAULT current_timestamp(),
   `inv_total` int(11) NOT NULL,
   `cus_id` int(11) NOT NULL,
   `pay_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `invoice`
+--
+
+INSERT INTO `invoice` (`inv_id`, `inv_date`, `inv_total`, `cus_id`, `pay_id`) VALUES
+(1, '2021-08-31 05:47:18', 2514000, 1, 2),
+(2, '2021-08-31 07:49:10', 3630000, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -200,6 +205,16 @@ CREATE TABLE `invoice_detail` (
   `inv_quantity` int(11) NOT NULL,
   `pro_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `invoice_detail`
+--
+
+INSERT INTO `invoice_detail` (`inv_det_id`, `inv_id`, `inv_quantity`, `pro_id`) VALUES
+(1, 1, 3, 1),
+(2, 1, 1, 17),
+(3, 2, 1, 1),
+(4, 2, 1, 17);
 
 -- --------------------------------------------------------
 
@@ -286,7 +301,9 @@ INSERT INTO `product` (`pro_id`, `pro_name`, `pro_summary`, `pro_price`, `pro_st
 (12, 'Video Proyector LG    ', 'El CineBeam LG PH510 es ideal para que el entretenimiento en casa sea una experiencia de gran formato, de la mejor calidad y para cualquier espacio o para facilitar tus presentaciones en caso que lo requieres para tu trabajo o estudio gracias a su portabilidad. Incomparable experiencia visual. Es un Producto compacto, versátil, sin instalación, se puede llevar en un morral o bolso a cuqluier lugar, para ver cualquier tipo de contenidos: películas, archivos, fotos. Gracias a su gran capacidad de contraste y su alta definicios permite visualizar colores mas vivos y con mas detalle.', 1999000, 33, 10, 1, 4, 4),
 (13, 'Router TP-LINK   ', 'Necesitas cobertura Y quieres un router de alta potencia para tus zonas sin Wifi', 259900, 33, 13, 12, 11, 4),
 (14, 'Combo VTA Plug Inteligente + Rose', 'Completa cualquier habitación con el combo VTA Casa Inteligente. Diseñada para adaptarse a tu estilo de vida móvil al mismo tiempo que crea un entorno más seguro tanto dentro como fuera del hogar, la marca unifica una extensa gama de productos plenamente integrados a través de una aplicación única, muy fácil de usar , puedes ejercer control, programar y hacer funcionar los dispositivos en el horario que más te acomode aun cuando estés fuera de casa.', 89900, 33, 14, 10, 9, 4),
-(15, 'Alarma Detector VTA Humo  ', 'Detector de humo, ideal para identificar de manera inmediata, incidentes con fuego en nuestro hogar evitando situaciones peligrosas para nuestra familia.', 140999, 33, 15, 10, 9, 4);
+(15, 'Alarma Detector VTA Humo  ', 'Detector de humo, ideal para identificar de manera inmediata, incidentes con fuego en nuestro hogar evitando situaciones peligrosas para nuestra familia.', 140999, 33, 15, 10, 9, 4),
+(16, 'Tripode', 'trípode ', 60000, 33, 12, 11, 10, 4),
+(17, 'Computador All In One HP', 'Tu computador de alto rendimiento, confiable y seguro. Disfruta de este hermoso computador que combina el diseño ergonómico, funcionalidad y poder, dándote seguridad y confianza para que todos en tu familia lo utilicen sin ninguna preocupación. Innovación inteligente, con pantalla Full HD ajustable y camara de de privacidad con sistema de bloqueo, hecha para que la utilices con confianza. El rendimiento destacado del procesador Intel® Core™ de 10.ª generación satisface fácilmente las exigencias de los multimedios. Al contar con capacidades mejoradas de la pantalla y las opciones ultrarrápidas de Wi-Fi 6, podrás completar tus tareas sin interrupciones. Tú máximo desempeño nunca fue tan fácil de alcanzar. Equilibrio perfecto entre funcionalidad y poder listo para cualquier situación.', 1815000, 33, 5, 4, 3, 4);
 
 -- --------------------------------------------------------
 
@@ -325,7 +342,14 @@ INSERT INTO `product_img` (`pro_img_id`, `pro_img_name`, `pro_img_url`, `pro_id`
 (22, 'product-1-22', 'img/product/product-1-22.jfif', 1),
 (23, 'product-1-23', 'img/product/product-1-23.jfif', 1),
 (24, 'product-1-24', 'img/product/product-1-24.jfif', 1),
-(25, 'product-1-25', 'img/product/product-1-25.jfif', 1);
+(25, 'product-1-25', 'img/product/product-1-25.jfif', 1),
+(26, 'product-16-26', '', 16),
+(27, 'product-16-27', '', 16),
+(28, 'product-17-28', '', 17),
+(29, 'product-17-29', '', 17),
+(30, 'product-17-30', '', 17),
+(31, 'product-17-31', '', 17),
+(32, 'product-17-32', '', 17);
 
 -- --------------------------------------------------------
 
@@ -390,7 +414,10 @@ INSERT INTO `product_specification` (`pro_spe_id`, `pro_spe_description`, `pro_i
 (46, 'VTA-84657', 15, 13),
 (47, 'Bluetooth', 15, 19),
 (48, 'Velocidad 450 Mbps', 13, 20),
-(49, 'A514-53-570S', 1, 13);
+(49, 'A514-53-570S', 1, 13),
+(50, 'r-589534', 16, 13),
+(51, '24-df0007la', 17, 13),
+(52, '4 Gb', 17, 3);
 
 -- --------------------------------------------------------
 
@@ -556,7 +583,10 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`user_id`, `user_name`, `user_last_name`, `user_email`, `user_pass`, `created_at`, `updated_at`, `rol_id`, `sta_id`) VALUES
 (1, 'Luis Felipe', 'Santofimio Ramirez', 'lfsantofimio4@misena.edu.co', 'e10adc3949ba59abbe56e057f20f883e', '2021-07-15 04:08:34', '2021-08-03 19:52:45', 1, 1),
 (2, 'Jamund', 'Pere', 'lfsa@misena.edu.co', '300272b11a115cf2daba3cdb5d967971', '2021-07-15 04:34:35', '2021-08-03 19:50:42', 2, 2),
-(3, 'jose', 'santo', 'jose@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '2021-08-24 22:14:16', '2021-08-24 22:14:16', 3, 1);
+(3, 'jose', 'santo', 'jose@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '2021-08-24 22:14:16', '2021-08-24 22:14:16', 3, 1),
+(4, '', '', '', 'd41d8cd98f00b204e9800998ecf8427e', '2021-08-27 04:34:30', '2021-08-27 04:34:30', 3, 1),
+(5, '', '', '', 'd41d8cd98f00b204e9800998ecf8427e', '2021-08-27 04:34:50', '2021-08-27 04:34:50', 3, 1),
+(6, '', '', '', 'd41d8cd98f00b204e9800998ecf8427e', '2021-08-27 05:03:51', '2021-08-27 05:03:51', 3, 1);
 
 --
 -- Índices para tablas volcadas
