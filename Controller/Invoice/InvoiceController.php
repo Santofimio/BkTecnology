@@ -15,7 +15,16 @@ class InvoiceController
     {
 
         $depto = $this->objInvoice->consult("*", "department");
-        include_once '../View/Invoice/Invoice.php';
+
+        $user = $_SESSION['id'];
+        $customer = $this->objInvoice->consult("*", "customer", "user_id=$user");
+        if (mysqli_num_rows($customer) > 0) {
+            $cus = mysqli_fetch_assoc($customer);
+            include_once '../View/Invoice/InvoiceCus.php';
+        }else{
+            include_once '../View/Invoice/Invoice.php';
+        }
+
     }
 
     public function createInvoice()
@@ -35,12 +44,13 @@ class InvoiceController
             $customer = $this->objInvoice->consult("*", "customer", "user_id=$user");
 
             if (mysqli_num_rows($customer) > 0) {
+                // echo mysqli_num_rows($customer);
 
                 foreach ($customer  as $cus) {
                     $cus_id = $cus['cus_id'];
                 }
                 $this->objInvoice->update(
-                    "invoice",
+                    "customer",
                     "cus_id=$cus_id",
                     array(
                         "cus_tel" => "'$tel'",
@@ -84,7 +94,7 @@ class InvoiceController
                 }
                 $this->objInvoice->delete("cart_detail", "cart_id=$cart_id");
             }
-
+            $_SESSION['cart'] = 0;
             $_SESSION['invoice'] = $inv_id;
             redirect("invoice.php");
         } else {
@@ -98,13 +108,29 @@ class InvoiceController
         if (isset($_SESSION['invoice'])) {
 
             $inv_id = $_SESSION['invoice'];
-            $invoice = $this->objInvoice->consult("i.inv_id,i.inv_date,i.inv_total,p.pay_id,c.cus_id,c.cus_tel,c.cus_address_sh", "invoice i,customer c,pay p", "inv_id='$inv_id'");
-            // $invoice_detail = $this->objInvoice->consult("*","invoice_detail","cart_id=$cart_id");
+            $invoice = $this->objInvoice->consult("i.inv_id,i.inv_date,i.inv_total,u.user_name,u.user_last_name,c.cus_id,c.cus_tel,c.cus_address_sh", "invoice i,customer c,user u", "c.user_id=u.user_id AND inv_id='$inv_id'");
+            
             $inv = mysqli_fetch_assoc($invoice);
+            $inv_id = $inv['inv_id'];
+            $invoice_detail = $this->objInvoice->consult("det.pro_id,det.inv_quantity,p.pro_name,p.pro_price","invoice_detail det, product p","det.pro_id=p.pro_id AND inv_id=$inv_id");
+
+            $str = "";
+
+            foreach ($invoice_detail as $inv_det) {
+                $str .="<tr>
+                <td width='5%'> <span>".$inv_det['pro_id']."</span></td>
+                <td width='60%'><span>".$inv_det['pro_name']."</span></td>
+                <td class='amount'><input type='text' value='".$inv_det['inv_quantity']."' /></td>
+                <td class='rate'><input type='text' value='".$inv_det['pro_price']."' /></td>
+                <td class='sum'>".$inv_det['pro_price']*$inv_det['inv_quantity']."</td>
+                </tr>";
+            }
+
+            
 
             $col = array();
             $col = [
-                "invoice" => "hola"
+                "detail" => "$str"
             ];
             $myObj = new \stdClass();
             $myObj->info = $col;

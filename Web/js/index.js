@@ -34,6 +34,8 @@ function pay() {
             p.removeChild(btn);
             var total_input = document.getElementById('input-total');
             total_input.value = total;
+
+            console.log(data);
         })
         .catch(function (error) {
             console.log(error);

@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <title>factura</title>
-  <link rel="stylesheet" href="assets/assets_invoice/css/main.css">
+  <link rel="stylesheet" href="assets/css/main.css">
 </head>
 
 <body onload="loadInvoice()">
@@ -50,12 +50,10 @@
     <div class="col-2">
 
 
-      <p class="client">
-        <strong>Facturar a</strong><br>
-        Nombre cliente<br>
-        Nombre emmpresa<br>
-        Dirección empresa<br>
-        Tel empresa
+      <p class="client">Nombre:
+        <strong id="name"></strong><br>Dirección:
+        <span id="address"></span><br>Telefono:
+        <span id="tel"></span>
       </p>
     </div>
     <!--.col-->
@@ -67,22 +65,13 @@
     <table>
       <thead>
         <th width="5%">Código</th>
-        <th width="60%">Descripción</th>
-
-        <th width="10%">Cant.</th>
+        <th width="60%">Nombre</th>
+        <th width="10%">Cantidad</th>
         <th width="15%">Precio</th>
-        <th class="taxrelated">IVA</th>
         <th width="10%">Total</th>
       </thead>
-      <tbody>
-        <tr>
-          <td width='5%'> <span>12345</span></td>
-          <td width='60%'><span>Descripción</span></td>
-          <td class="amount"><input type="text" value="1" /></td>
-          <td class="rate"><input type="text" value="99" /></td>
-          <td class="tax taxrelated"></td>
-          <td class="sum"></td>
-        </tr>
+      <tbody id="tbl">
+        
       </tbody>
     </table>
   </div>
@@ -90,10 +79,6 @@
 
   <div class="invoicelist-footer">
     <table>
-      <tr class="taxrelated">
-        <td>IVA:</td>
-        <td id="total_tax"></td>
-      </tr>
       <tr>
         <td><strong>Total:</strong></td>
         <td id="total_price"></td>
